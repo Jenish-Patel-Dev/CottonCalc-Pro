@@ -1,0 +1,237 @@
+{
+  "app": {
+    "title": "CottonCalc Pro",
+    "subtitle": "Cotton & Oil Mill Calculator",
+    "tagline": "Select Calculator",
+    "ginningTitle": "Cotton Ginning",
+    "ginningSubtitle": "Output & Cost Parity",
+    "oilTitle": "Oil Mill",
+    "oilSubtitle": "Crushing & Recovery",
+    "settingsTitle": "Settings",
+    "settingsSubtitle": "Application Preferences & PWA",
+    "marketTipTitle": "Market Tip",
+    "marketTipQuote": "\"Accurate parity calculation is the first step to a profitable season.\"",
+    "standardUnitsTitle": "Standard Units",
+    "standardUnitsText": "1 Candy = 356 kg Lint | 1 Maund = 20 kg",
+    "disclaimer": "All calculations are estimates. Market conditions vary."
+  },
+  "nav": {
+    "home": "Home",
+    "ginning": "Cotton Ginning",
+    "oil": "Oil Mill",
+    "settings": "Settings",
+    "back": "Back",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar"
+  },
+  "ginning": {
+    "tabOutput": "Output",
+    "tabParity": "Parity",
+    "tabReverse": "Reverse",
+    "sampleUnit": "Sample (g)",
+    "bulkUnit": "Bulk (kg)",
+    "inputDetails": "Input Details",
+    "rawCotton": "Total Raw Cotton (Kapas)",
+    "lintOutput": "Lint Output",
+    "seedOutput": "Seed Output",
+    "wasteLoss": "Waste/Loss",
+    "gotTitle": "Ginning Outturn (GOT)",
+    "lint": "Lint",
+    "seed": "Seed",
+    "waste": "Waste",
+    "balanceWarning": "Note: Total percentage is {percent}%.",
+    "marketRates": "Market Rates",
+    "kapasPrice": "Raw Cotton (Kapas) Price",
+    "seedPrice": "Cotton Seed Price",
+    "ginningExpense": "Ginning Expense",
+    "per20kg": "per 20kg",
+    "per100kg": "per 100kg",
+    "perMaundKapas": "/ 20kg Raw Cotton",
+    "parameters": "Parameters",
+    "expectedGot": "Expected GOT %",
+    "expectedShortage": "Shortage/Waste %",
+    "costOfProduction": "Cost of Production (Parity)",
+    "perCandy": "/ Candy",
+    "candyLintNote": "Calculated for 1 Candy (356 kg) of Lint",
+    "marketSellingPrices": "Market Selling Prices",
+    "lintSellingPrice": "Lint Selling Price (Per Candy)",
+    "buyingParityTitle": "Buying Parity (Max Purchase Rate)",
+    "buyingParityNote": "You can pay up to this amount for Raw Cotton to break even."
+  },
+  "oil": {
+    "tabRecovery": "Recovery",
+    "tabProfit": "Profit",
+    "tabKhalCost": "Khal Cost",
+    "seedInput": "Seed Input",
+    "totalSeedProcessed": "Total Seed Processed",
+    "oilRecPercent": "Oil Rec. %",
+    "cakeRecPercent": "Cake (Khal) %",
+    "outputBreakdown": "Output Breakdown",
+    "washOil": "Wash Oil",
+    "oilCake": "Oil Cake (Khal)",
+    "wasteLoss": "Waste / Loss",
+    "costAndRevenue": "Cost & Revenue",
+    "inputRates": "Input Rates",
+    "seedPurchaseRate": "Seed Purchase Rate",
+    "oilSellingRate": "Oil Selling Rate",
+    "cakeSellingRate": "Cake (Khal) Selling Rate",
+    "processingExpense": "Processing Exp",
+    "perTon": "per Ton",
+    "per20kg": "per 20kg",
+    "per100kg": "per 100kg",
+    "per10kg": "per 10kg",
+    "per1kg": "per 1kg",
+    "per15kg": "per 15kg",
+    "per50kgBag": "per 50kg Bag",
+    "showCostPer": "Show Cost Per:",
+    "bag50kg": "50kg Bag",
+    "unit20kg": "20kg",
+    "unit100kg": "100kg",
+    "unit1kg": "1kg",
+    "netProfitLoss": "Net Crushing Profit/Loss",
+    "profitable": "Profitable Operation",
+    "lossMaking": "Loss Making Operation",
+    "khalCostTitle": "Khal Cost of Production",
+    "khalCostNote": "Your manufacturing cost for one {unit}kg unit."
+  },
+  "settings": {
+    "appearanceTitle": "Appearance",
+    "theme": "Theme",
+    "themeSystem": "System",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "languageTitle": "Language",
+    "langEnglish": "English",
+    "langHindi": "हिन्दी",
+    "langGujarati": "ગુજરાતી",
+    "pwaTitle": "Application & Installation",
+    "appStatus": "App Status",
+    "standaloneRunning": "Installed & Running in Standalone App Mode",
+    "browserRunning": "Running in Browser Mode",
+    "installBtn": "Install Application",
+    "installSuccess": "Installed Successfully",
+    "installInstructionsDesktop": "On desktop browsers, click the Install icon in the address bar to install this app.",
+    "installInstructionsMobile": "On mobile browsers, open the browser menu and select 'Add to Home screen' or 'Install App'.",
+    "aboutTitle": "About CottonCalc Pro",
+    "version": "Version",
+    "versionNumber": "1.0.0 (PWA)",
+    "purpose": "Purpose",
+    "purposeText": "Designed for Cotton Ginners, Commodity Traders, and Oil Mill Operators for accurate, instant parity and recovery calculations.",
+    "storageTitle": "Data & Preferences",
+    "resetBtn": "Reset Preferences",
+    "resetSuccess": "Preferences reset to defaults."
+  },
+  "pwa": {
+    "offlineTitle": "You are offline",
+    "offlineText": "Please reconnect to continue. Calculations remain functional locally.",
+    "updateTitle": "New version available",
+    "updateText": "An update is ready. Reload to apply changes.",
+    "updateBtn": "Update Now",
+    "installTitle": "Install CottonCalc Pro",
+    "installDesc": "Install as a standalone desktop or mobile application for instant access, offline support, and full screen experience.",
+    "installNow": "Install Now",
+    "later": "Maybe Later",
+    "iosSharePrompt": "To install on iOS: Tap the Share button in Safari and choose 'Add to Home Screen'."
+  },
+  "pageInfo": {
+    "infoTitle": "Page Information",
+    "tooltip": "Page Information",
+    "purposeTitle": "Purpose",
+    "howToUseTitle": "How to Use",
+    "keyFeaturesTitle": "Key Features",
+    "importantFieldsTitle": "Important Fields & Metrics",
+    "actionsTitle": "Actions & Controls",
+    "gotIt": "Got It",
+    "ginning": {
+      "title": "About Cotton Ginning",
+      "subtitle": "Ginning Outturn (GOT) & Parity Calculations",
+      "purpose": "Accurately test Ginning Outturn (GOT) percentage from seed cotton (Kapas) and compute Cost of Production (Parity) as well as Reverse Buying Parity for profitable purchasing decisions.",
+      "howToUse": [
+        "Select your calculation tab: Output (GOT test), Parity (Cost per Candy), or Reverse (Max purchase price).",
+        "Choose measurement unit: Sample (g) for 100g laboratory sample tests or Bulk (kg) for commercial mill lots.",
+        "Enter Raw Cotton (Kapas) weight along with Lint and Seed outputs to calculate GOT % and waste automatically.",
+        "In Parity / Reverse tabs, enter market rates (Kapas rate, Seed price, Ginning expense) to compute instant break-even costs."
+      ],
+      "keyFeatures": [
+        "GOT Percentage Breakdown: Dynamic visual donut chart showing exact Lint %, Seed %, and Waste %.",
+        "Cost Parity Calculator: Computes net manufacturing cost for 1 Candy (356 kg) of lint after deducting seed revenue.",
+        "Reverse Buying Parity: Calculates the maximum price you can afford to pay per 20kg maund of Kapas to break even.",
+        "Real-Time Balance Check: Warns immediately if total output does not equal 100%."
+      ],
+      "importantFields": [
+        "Total Raw Cotton (Kapas): Total unprocessed seed cotton weight tested or processed.",
+        "Lint Output: Weight of clean, ginned cotton fiber recovered.",
+        "Seed Output: Weight of cotton seed separated from fiber during ginning.",
+        "GOT % (Ginning Outturn): Percentage of lint fiber extracted from Kapas (typically 32% - 36%).",
+        "Cost of Production (/ Candy): Total cost to produce one candy (356 kg) of lint factoring in seed sales and ginning charges."
+      ],
+      "actions": [
+        "Sample (g) / Bulk (kg) Toggle: Switch between gram lab testing and commercial kilogram lot processing.",
+        "Tab Navigation: Seamlessly switch between GOT Output, Cost Parity, and Reverse Parity calculations."
+      ]
+    },
+    "oil": {
+      "title": "About Oil Mill",
+      "subtitle": "Seed Crushing Recovery, Profit & Khal Cost",
+      "purpose": "Track cottonseed crushing recovery (Wash Oil, Oil Cake, and Loss), calculate net crushing profit or loss, and determine the exact production cost of Khal (Oil Cake).",
+      "howToUse": [
+        "Select your calculation tab: Recovery (Yield breakdown), Profit (Net P&L), or Khal Cost (Cost per unit).",
+        "Enter Total Seed Processed (kg), Wash Oil Recovery %, and Cake (Khal) %.",
+        "Review dynamic Output Breakdown cards for exact yields in kilograms and percentages.",
+        "In Profit & Khal Cost tabs, enter market rates (Seed purchase, Oil selling, Cake selling, and Processing expense) to view instant profitability."
+      ],
+      "keyFeatures": [
+        "Dynamic Recovery Breakdown: Real-time calculation of Wash Oil (kg), Oil Cake (kg), and Waste/Moisture loss.",
+        "Crushing Profit/Loss Analysis: Automatically computes total revenue against total cost with clear profitability status.",
+        "Khal Production Cost: Computes exact manufacturing cost of Oil Cake across selectable unit sizes (50kg Bag, 20kg, 100kg, 1kg).",
+        "Visual Status Badges: Instant feedback indicating profitable or loss-making operations."
+      ],
+      "importantFields": [
+        "Total Seed Processed: Total raw cottonseed fed into expellers/crushing plant.",
+        "Oil Rec. %: Percentage of unrefined Wash Oil extracted (typically 10% - 13%).",
+        "Cake (Khal) %: Percentage of solid protein cake produced (typically 82% - 86%).",
+        "Seed Purchase Rate: Purchase price per 20kg maund, per ton, or per 100kg.",
+        "Processing Expense: Electricity, maintenance, labor, and steam expense per ton."
+      ],
+      "actions": [
+        "Tab Navigation: Switch between Recovery, Profit, and Khal Cost calculators.",
+        "Show Cost Per Unit (Khal Cost): Choose display unit (50kg Bag, 20kg maund, 100kg quintal, 1kg)."
+      ]
+    },
+    "settings": {
+      "title": "About Settings",
+      "subtitle": "Appearance, Language, PWA Installation & App Info",
+      "purpose": "Customize application appearance, switch languages instantly, install CottonCalc Pro as a standalone PWA app, and view reference units and application details.",
+      "howToUse": [
+        "In Appearance, tap System, Light, or Dark to change UI theme instantly.",
+        "In Language, tap English, हिन्दी, or ગુજરાતી to localize all calculations, labels, and help content.",
+        "In Application & Installation, click 'Install Application' to add to your Home Screen / Desktop.",
+        "Review the About section for version details and standard commodity conversion factors."
+      ],
+      "keyFeatures": [
+        "Liquid Glass Themes: Seamless adaptation between ultra-crisp Light mode, OLED-optimized Dark mode, and System preference.",
+        "Multi-Language Support: Comprehensive localization for English, Hindi, and Gujarati with zero page reload.",
+        "Progressive Web App (PWA): Works completely offline with cached calculators and instant desktop/mobile app installation.",
+        "Preferences Persistence: Your selected language, theme, and units are automatically remembered across sessions."
+      ],
+      "importantFields": [
+        "Appearance: Visual interface mode (System default, Light glass, Dark glass).",
+        "Language: UI language selection (English, Hindi, Gujarati).",
+        "App Status: Indicates whether running in Browser Mode or Installed Standalone PWA Mode.",
+        "Standard Units: Official conversion standards (1 Candy = 356 kg Lint, 1 Maund = 20 kg)."
+      ],
+      "actions": [
+        "Theme Selection: Tap any theme tile to apply immediately.",
+        "Language Selection: Tap any language button to switch entire UI.",
+        "Install Application: Launch direct native app install prompt.",
+        "Reset Preferences: Restore factory appearance and language defaults."
+      ]
+    }
+  },
+  "common": {
+    "rupee": "₹",
+    "close": "Close",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  }
+}
