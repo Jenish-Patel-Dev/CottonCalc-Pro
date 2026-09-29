@@ -145,7 +145,7 @@ export const GinningCalculator = () => {
       {/* Standard Units Footer */}
       <div className="foot">
         Standard Units<br />
-        1 Candy = 356 kg Lint | 1 Maund = 20 kg<br />
+        1 Candy = 355.62 kg Lint | 1 Maund = 20 kg<br />
         All calculations are estimates. Market conditions vary.
       </div>
     </>

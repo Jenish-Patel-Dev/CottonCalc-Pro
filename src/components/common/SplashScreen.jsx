@@ -38,7 +38,7 @@ export const SplashScreen = ({ isFadingOut = false }) => {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            Cotton Calculater Pro
+            Cotton Calculator Pro
           </h1>
           <p className="splash-subtitle text-xs sm:text-sm font-semibold text-app-secondary tracking-wide m-0">
             Ginning &amp; Oil Mill Calculator

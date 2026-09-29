@@ -26,7 +26,7 @@ export const InstallModal = () => {
         <div className="flex items-center gap-3.5">
           <img
             src="/icon-192.png"
-            alt="Cotton Calculater Pro"
+            alt="Cotton Calculator Pro"
             style={{ width: '52px', height: '52px', objectFit: 'contain', background: 'transparent', display: 'block' }}
             className="flex-shrink-0"
           />
@@ -35,7 +35,7 @@ export const InstallModal = () => {
               {t('pwa.installTitle')}
             </h3>
             <p style={{ color: 'var(--muted)', fontSize: '12px', fontWeight: 600 }}>
-              Cotton Calculater Pro
+              Cotton Calculator Pro
             </p>
           </div>
         </div>
