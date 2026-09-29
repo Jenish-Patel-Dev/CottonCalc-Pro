@@ -35,7 +35,7 @@ export const HomeScreen = ({ onSelectView }) => {
           <span>{t('ginning.tabReverse')}</span>
         </div>
         <div className="tstat">
-          1 Candy = <b>356 kg Lint</b>
+          1 Candy = <b>355.62 kg Lint</b>
         </div>
       </div>
 
@@ -112,7 +112,7 @@ export const HomeScreen = ({ onSelectView }) => {
       {/* 5. Standard Units Footer */}
       <div className="foot">
         Standard Units<br />
-        1 Candy = 356 kg Lint | 1 Maund = 20 kg<br />
+        1 Candy = 355.62 kg Lint | 1 Maund = 20 kg<br />
         All calculations are estimates. Market conditions vary.
       </div>
     </>

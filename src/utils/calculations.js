@@ -38,8 +38,10 @@ export function calculateGinningOutput({ inputWeight, lintWeight, seedWeight, wa
   };
 }
 
+export const LINT_PER_CANDY = 355.62;
+
 /**
- * Calculates Cost of Production (Parity) per Candy (356 kg of Lint).
+ * Calculates Cost of Production (Parity) per Candy (355.62 kg of Lint).
  */
 export function calculateGinningParity({
   kapasRate,
@@ -62,7 +64,6 @@ export function calculateGinningParity({
   const safeShortage = parseFloat(expectedShortage) || 0;
 
   if (safeGot > 0) {
-    const LINT_PER_CANDY = 356;
     const requiredKapasKg = LINT_PER_CANDY / (safeGot / 100);
     const seedPercentageDec = (100 - safeGot - safeShortage) / 100;
     const generatedSeedKg = requiredKapasKg * seedPercentageDec;
@@ -108,7 +109,7 @@ export function calculateReverseParity({
     const lintYieldKg = KAPAS_UNIT * (safeGot / 100);
     const seedYieldKg = KAPAS_UNIT * ((100 - safeGot - safeShortage) / 100);
 
-    const lintValue = (lintYieldKg / 356) * safeLintPrice;
+    const lintValue = (lintYieldKg / LINT_PER_CANDY) * safeLintPrice;
     const seedValue = (seedYieldKg / revSeedUnit) * safeSeedPrice;
     const totalRealization = lintValue + seedValue;
     const maxKapasRate = totalRealization - safeExpense;

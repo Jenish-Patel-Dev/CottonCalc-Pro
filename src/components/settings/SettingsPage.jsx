@@ -202,7 +202,7 @@ export const SettingsPage = () => {
           {t('settings.purposeText')}
         </p>
         <div className="units">
-          <div>1 CANDY<b>356 kg Lint</b></div>
+          <div>1 CANDY<b>355.62 kg Lint</b></div>
           <div>1 MAUND<b>20 kg Raw</b></div>
           <div>1 QUINTAL<b>100 kg</b></div>
           <div>1 TON<b>1000 kg Seed</b></div>

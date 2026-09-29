@@ -12,7 +12,7 @@
     "marketTipTitle": "Market Tip",
     "marketTipQuote": "\"Accurate parity calculation is the first step to a profitable season.\"",
     "standardUnitsTitle": "Standard Units",
-    "standardUnitsText": "1 Candy = 356 kg Lint | 1 Maund = 20 kg",
+    "standardUnitsText": "1 Candy = 355.62 kg Lint | 1 Maund = 20 kg",
     "disclaimer": "All calculations are estimates. Market conditions vary."
   },
   "nav": {
@@ -53,7 +53,7 @@
     "expectedShortage": "Shortage/Waste %",
     "costOfProduction": "Cost of Production (Parity)",
     "perCandy": "/ Candy",
-    "candyLintNote": "Calculated for 1 Candy (356 kg) of Lint",
+    "candyLintNote": "Calculated for 1 Candy (355.62 kg) of Lint",
     "marketSellingPrices": "Market Selling Prices",
     "lintSellingPrice": "Lint Selling Price (Per Candy)",
     "buyingParityTitle": "Buying Parity (Max Purchase Rate)",
@@ -131,10 +131,10 @@
     "offlineTitle": "You are offline",
     "offlineText": "Please reconnect to continue. Calculations remain functional locally.",
     "updateTitle": "New Update Available!",
-    "updateText": "A new version of Cotton Calculater Pro is ready. Update now to replace the old version instantly without reinstalling.",
+    "updateText": "A new version of Cotton Calculator Pro is ready. Update now to replace the old version instantly without reinstalling.",
     "updateBtn": "Update Now",
     "updatingBtn": "Updating Application...",
-    "installTitle": "Install Cotton Calculater Pro",
+    "installTitle": "Install Cotton Calculator Pro",
     "installDesc": "Install as a standalone desktop or mobile application for instant access, offline support, and full screen experience.",
     "installNow": "Install Now",
     "later": "Maybe Later",
@@ -161,7 +161,7 @@
       ],
       "keyFeatures": [
         "GOT Percentage Breakdown: Dynamic visual donut chart showing exact Lint %, Seed %, and Waste %.",
-        "Cost Parity Calculator: Computes net manufacturing cost for 1 Candy (356 kg) of lint after deducting seed revenue.",
+        "Cost Parity Calculator: Computes net manufacturing cost for 1 Candy (355.62 kg) of lint after deducting seed revenue.",
         "Reverse Buying Parity: Calculates the maximum price you can afford to pay per 20kg maund of Kapas to break even.",
         "Real-Time Balance Check: Warns immediately if total output does not equal 100%."
       ],
@@ -175,7 +175,7 @@
         "Seed Selling Price: Market realization per 20kg maund or 100kg quintal of cotton seed.",
         "Ginning Expense: Electricity, labor, bale bagging, and processing charges per 20kg maund.",
         "Shortage / Waste %: Expected invisible process loss and moisture loss during ginning.",
-        "Cost of Production (/ Candy): Total cost to produce one candy (356 kg) of lint factoring in seed sales and ginning charges.",
+        "Cost of Production (/ Candy): Total cost to produce one candy (355.62 kg) of lint factoring in seed sales and ginning charges.",
         "Reverse Buying Parity: Highest purchase rate you can pay per 20kg maund to avoid losses at current market rates."
       ],
       "actions": [
@@ -245,7 +245,7 @@
         "Language: UI language selection (English, Hindi, Gujarati).",
         "App Status: Indicates whether running in Browser Mode or Installed Standalone PWA Mode.",
         "Share Application: One-tap button to share CottonCalc Pro with business peers.",
-        "Standard Units: Official conversion standards (1 Candy = 356 kg Lint, 1 Maund = 20 kg, 1 Ton = 1000 kg)."
+        "Standard Units: Official conversion standards (1 Candy = 355.62 kg Lint, 1 Maund = 20 kg, 1 Ton = 1000 kg)."
       ],
       "actions": [
         "Theme Selection: Tap any theme tile to apply immediately.",
