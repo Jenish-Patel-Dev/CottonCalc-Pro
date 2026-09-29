@@ -13,7 +13,7 @@ export const KhalParityTab = ({
   setOilSellRate,
   oilSellUnit,
   setOilSellUnit,
-  cakeSellUnit,
+  cakeSellUnit = 50,
   setCakeSellUnit,
   oilExpense,
   setOilExpense,
@@ -192,6 +192,15 @@ export const KhalParityTab = ({
               }}
             >
               ₹ {formatCurrency(khalParityCost)}
+            </span>
+            <span
+              style={{
+                fontSize: '13px',
+                fontWeight: 700,
+                color: '#AAB5F0',
+              }}
+            >
+              / {cakeSellUnit === 50 ? t('oil.bag50kg') : `${cakeSellUnit} kg`}
             </span>
           </div>
           <p

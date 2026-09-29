@@ -21,6 +21,7 @@
     "oil": "Oil Mill",
     "settings": "Settings",
     "back": "Back",
+    "refresh": "Refresh Application",
     "collapse": "Collapse sidebar",
     "expand": "Expand sidebar"
   },
@@ -109,7 +110,11 @@
     "standaloneRunning": "Installed & Running in Standalone App Mode",
     "browserRunning": "Running in Browser Mode",
     "installBtn": "Install Application",
-    "installBtnShort": "Install",
+    "shareTitle": "Share Application",
+    "shareBtn": "Share Application",
+    "shareApp": "Share Application",
+    "linkCopied": "Link Copied!",
+    "shareDescription": "Share CottonCalc Pro with fellow ginners, brokers, traders, and oil millers.",
     "installSuccess": "Installed Successfully",
     "installInstructionsDesktop": "On desktop browsers, click the Install icon in the address bar to install this app.",
     "installInstructionsMobile": "On mobile browsers, open the browser menu and select 'Add to Home screen' or 'Install App'.",
@@ -164,12 +169,19 @@
         "Total Raw Cotton (Kapas): Total unprocessed seed cotton weight tested or processed.",
         "Lint Output: Weight of clean, ginned cotton fiber recovered.",
         "Seed Output: Weight of cotton seed separated from fiber during ginning.",
+        "Waste / Loss: Trash, dust, and moisture loss during ginning process.",
         "GOT % (Ginning Outturn): Percentage of lint fiber extracted from Kapas (typically 32% - 36%).",
-        "Cost of Production (/ Candy): Total cost to produce one candy (356 kg) of lint factoring in seed sales and ginning charges."
+        "Kapas Purchase Rate: Market price paid per 20kg maund or 100kg quintal of seed cotton.",
+        "Seed Selling Price: Market realization per 20kg maund or 100kg quintal of cotton seed.",
+        "Ginning Expense: Electricity, labor, bale bagging, and processing charges per 20kg maund.",
+        "Shortage / Waste %: Expected invisible process loss and moisture loss during ginning.",
+        "Cost of Production (/ Candy): Total cost to produce one candy (356 kg) of lint factoring in seed sales and ginning charges.",
+        "Reverse Buying Parity: Highest purchase rate you can pay per 20kg maund to avoid losses at current market rates."
       ],
       "actions": [
         "Sample (g) / Bulk (kg) Toggle: Switch between gram lab testing and commercial kilogram lot processing.",
-        "Tab Navigation: Seamlessly switch between GOT Output, Cost Parity, and Reverse Parity calculations."
+        "Tab Navigation: Seamlessly switch between GOT Output, Cost Parity, and Reverse Parity calculations.",
+        "Unit Selection: Switch Kapas and Seed rates between 20kg Maund and 100kg Quintal."
       ]
     },
     "oil": {
@@ -192,40 +204,55 @@
         "Total Seed Processed: Total raw cottonseed fed into expellers/crushing plant.",
         "Oil Rec. %: Percentage of unrefined Wash Oil extracted (typically 10% - 13%).",
         "Cake (Khal) %: Percentage of solid protein cake produced (typically 82% - 86%).",
+        "Waste / Loss: Moisture evaporation and invisible process loss.",
         "Seed Purchase Rate: Purchase price per 20kg maund, per ton, or per 100kg.",
-        "Processing Expense: Electricity, maintenance, labor, and steam expense per ton."
+        "Oil Selling Rate: Market selling price of unrefined wash oil per 10kg, 1kg, or 15kg tin.",
+        "Cake (Khal) Selling Rate: Market selling price of oil cake per 50kg bag, 20kg, 100kg, or 1kg.",
+        "Processing Expense: Electricity, maintenance, labor, and steam expense per ton or per 20kg maund.",
+        "Net Crushing Profit / Loss: Total oil and cake realization minus total procurement and crushing cost per metric ton.",
+        "Khal Cost of Production: Net manufacturing cost to produce one unit of oil cake after deducting wash oil revenue."
       ],
       "actions": [
         "Tab Navigation: Switch between Recovery, Profit, and Khal Cost calculators.",
+        "Seed Buy Unit: Switch purchase unit between 20kg, 100kg, and Ton.",
+        "Oil Sell Unit: Switch oil selling unit between 10kg, 1kg, and 15kg tin.",
+        "Cake Sell Unit: Switch cake selling unit between 50kg Bag, 20kg, 100kg, and 1kg.",
         "Show Cost Per Unit (Khal Cost): Choose display unit (50kg Bag, 20kg maund, 100kg quintal, 1kg)."
       ]
     },
     "settings": {
       "title": "About Settings",
       "subtitle": "Appearance, Language, PWA Installation & App Info",
-      "purpose": "Customize application appearance, switch languages instantly, install CottonCalc Pro as a standalone PWA app, and view reference units and application details.",
+      "purpose": "Customize application appearance, switch languages instantly, install CottonCalc Pro as a standalone PWA app, share with peers, and view reference units and application details.",
       "howToUse": [
         "In Appearance, tap System, Light, or Dark to change UI theme instantly.",
         "In Language, tap English, हिन्दी, or ગુજરાતી to localize all calculations, labels, and help content.",
         "In Application & Installation, click 'Install Application' to add to your Home Screen / Desktop.",
-        "Review the About section for version details and standard commodity conversion factors."
+        "In Share Application, tap 'Share Application' to send via WhatsApp, Telegram, or copy the direct link.",
+        "Review the About section for version details and standard commodity conversion factors.",
+        "Tap 'Reset Preferences' if you ever wish to restore default theme and language settings."
       ],
       "keyFeatures": [
         "Liquid Glass Themes: Seamless adaptation between ultra-crisp Light mode, OLED-optimized Dark mode, and System preference.",
         "Multi-Language Support: Comprehensive localization for English, Hindi, and Gujarati with zero page reload.",
         "Progressive Web App (PWA): Works completely offline with cached calculators and instant desktop/mobile app installation.",
+        "Native Sharing: Built-in share sheet integration to share with contacts and trade groups in 1 click.",
+        "One-Tap Refresh: Instantly refresh and sync latest application updates.",
         "Preferences Persistence: Your selected language, theme, and units are automatically remembered across sessions."
       ],
       "importantFields": [
         "Appearance: Visual interface mode (System default, Light glass, Dark glass).",
         "Language: UI language selection (English, Hindi, Gujarati).",
         "App Status: Indicates whether running in Browser Mode or Installed Standalone PWA Mode.",
-        "Standard Units: Official conversion standards (1 Candy = 356 kg Lint, 1 Maund = 20 kg)."
+        "Share Application: One-tap button to share CottonCalc Pro with business peers.",
+        "Standard Units: Official conversion standards (1 Candy = 356 kg Lint, 1 Maund = 20 kg, 1 Ton = 1000 kg)."
       ],
       "actions": [
         "Theme Selection: Tap any theme tile to apply immediately.",
         "Language Selection: Tap any language button to switch entire UI.",
         "Install Application: Launch direct native app install prompt.",
+        "Share Application: Share app link via WhatsApp, SMS, or copy link.",
+        "Refresh Application: Refresh app to load fresh assets and latest updates.",
         "Reset Preferences: Restore factory appearance and language defaults."
       ]
     }

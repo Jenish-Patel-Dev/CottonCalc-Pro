@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../../i18n/LanguageContext';
-import { IconDollar, IconSettings } from '../common/Icons';
+import { IconDollar, IconSettings, IconCheck } from '../common/Icons';
 import GlassSelect from '../common/GlassSelect';
 import { calculateReverseParity } from '../../utils/calculations';
 import { formatCurrency } from '../../utils/formatting';
@@ -138,20 +138,60 @@ export const ReverseParityTab = ({
 
       {/* Buying Parity Result Card */}
       {hasValidData && (
-        <div className="card" style={{ background: 'var(--side)', color: '#ffffff', border: 0 }}>
-          <div style={{ fontSize: '12px', color: 'var(--side-accent)', fontWeight: 800, letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: '6px' }}>
+        <div
+          className="card"
+          style={{
+            background: 'var(--side)',
+            color: '#ffffff',
+            border: '1px solid rgba(127, 211, 255, 0.3)',
+            marginTop: '14px',
+          }}
+        >
+          <div
+            className="lbl"
+            style={{
+              color: '#7FD3FF',
+              marginBottom: '6px',
+            }}
+          >
             {t('ginning.buyingParityTitle')}
           </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl sm:text-4xl font-extrabold font-mono text-white">
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+            <span
+              style={{
+                fontSize: '32px',
+                fontWeight: 800,
+                fontVariantNumeric: 'tabular-nums',
+                color: '#ffffff',
+              }}
+            >
               ₹ {formatCurrency(revKapasRate)}
             </span>
-            <span style={{ color: 'var(--side-muted)', fontSize: '13px', fontWeight: 700 }}>
+            <span
+              style={{
+                fontSize: '13px',
+                fontWeight: 700,
+                color: '#AAB5F0',
+              }}
+            >
               {t('ginning.perMaundKapas')}
             </span>
           </div>
-          <p style={{ color: 'var(--side-muted)', fontSize: '12px', fontWeight: 600, marginTop: '10px', paddingTop: '10px', borderTop: '1px solid rgba(255,255,255,.1)' }}>
-            {t('ginning.buyingParityNote')}
+          <p
+            style={{
+              fontSize: '12px',
+              marginTop: '10px',
+              paddingTop: '10px',
+              borderTop: '1px solid rgba(255, 255, 255, 0.15)',
+              fontWeight: 600,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              color: '#AAB5F0',
+            }}
+          >
+            <IconCheck size={14} className="text-[#7FD3FF]" />
+            <span>{t('ginning.buyingParityNote')}</span>
           </p>
         </div>
       )}

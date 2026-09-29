@@ -13,8 +13,16 @@ export const InstallModal = () => {
   if (!showInstallModal) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/65 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="glass-level-4 max-w-sm w-full p-6 shadow-2xl space-y-5 animate-in zoom-in duration-200 border border-white/30 dark:border-white/15 rounded-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-200">
+      <div
+        className="max-w-sm w-full p-6 shadow-2xl space-y-5 animate-in zoom-in duration-200 rounded-2xl"
+        style={{
+          background: 'var(--surf)',
+          border: '1px solid var(--line)',
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1)',
+          color: 'var(--text)',
+        }}
+      >
         <div className="flex items-center gap-3.5">
           <img
             src="/icon-192.png"
@@ -23,25 +31,32 @@ export const InstallModal = () => {
             className="flex-shrink-0"
           />
           <div>
-            <h3 className="font-bold text-app-primary text-base">
+            <h3 style={{ color: 'var(--text)', fontWeight: 800, fontSize: '16px' }}>
               {t('pwa.installTitle')}
             </h3>
-            <p className="text-xs text-app-secondary font-medium">
+            <p style={{ color: 'var(--muted)', fontSize: '12px', fontWeight: 600 }}>
               Cotton Calculater Pro
             </p>
           </div>
         </div>
 
-        <p className="text-sm text-app-secondary font-medium">
+        <p style={{ color: 'var(--muted)', fontSize: '13.5px', lineHeight: 1.5, fontWeight: 500 }}>
           {t('pwa.installDesc')}
         </p>
 
         {/* Platform-specific instructions */}
-        <div className="bg-white/40 dark:bg-white/10 rounded-xl p-3.5 border border-app-border text-xs text-app-primary space-y-2">
+        <div
+          className="rounded-xl p-3.5 space-y-2 text-xs"
+          style={{
+            background: 'var(--surf2)',
+            border: '1px solid var(--line)',
+            color: 'var(--text)',
+          }}
+        >
           {platform === 'ios' ? (
             <div className="space-y-2">
-              <p className="font-bold text-app-primary">iOS Safari:</p>
-              <ol className="list-decimal pl-4 space-y-1 text-app-secondary">
+              <p style={{ fontWeight: 800, color: 'var(--text)' }}>iOS Safari:</p>
+              <ol className="list-decimal pl-4 space-y-1" style={{ color: 'var(--muted)' }}>
                 <li>Tap the <strong>Share</strong> button at bottom of Safari.</li>
                 <li>Scroll down and tap <strong>Add to Home Screen</strong>.</li>
                 <li>Tap <strong>Add</strong> in the top right.</li>
@@ -49,10 +64,10 @@ export const InstallModal = () => {
             </div>
           ) : (
             <div className="space-y-2">
-              <p className="font-bold text-app-primary">
+              <p style={{ fontWeight: 800, color: 'var(--text)' }}>
                 {platform === 'android' ? 'Android Chrome:' : 'Desktop Browser:'}
               </p>
-              <ol className="list-decimal pl-4 space-y-1 text-app-secondary">
+              <ol className="list-decimal pl-4 space-y-1" style={{ color: 'var(--muted)' }}>
                 {platform === 'android' ? (
                   <>
                     <li>Tap the <strong>three dots menu (⋮)</strong> in Chrome.</li>

@@ -110,6 +110,8 @@ export const OilMillCalculator = () => {
           setOilSellRate={setOilSellRate}
           oilSellUnit={oilSellUnit}
           setOilSellUnit={setOilSellUnit}
+          cakeSellUnit={cakeSellUnit}
+          setCakeSellUnit={setCakeSellUnit}
           oilExpense={oilExpense}
           setOilExpense={setOilExpense}
           oilExpenseUnit={oilExpenseUnit}

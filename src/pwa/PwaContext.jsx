@@ -227,6 +227,46 @@ export const PwaProvider = ({ children }) => {
     }, 250);
   };
 
+  /**
+   * Refreshes the application and checks for any service worker update:
+   * 1. Checks for waiting service worker and sends SKIP_WAITING
+   * 2. Clears stale caches
+   * 3. Syncs latest version from version.json
+   * 4. Reloads window to load latest fresh assets
+   */
+  const refreshApp = async () => {
+    setIsUpdating(true);
+    try {
+      if (registrationRef.current) {
+        await registrationRef.current.update();
+        if (registrationRef.current.waiting) {
+          registrationRef.current.waiting.postMessage({ type: 'SKIP_WAITING' });
+        }
+      }
+
+      try {
+        const res = await fetch(`/version.json?_t=${Date.now()}`, { cache: 'no-store' });
+        if (res.ok) {
+          const d = await res.json();
+          if (d.version) localStorage.setItem('cotton_calc_version', d.version);
+        }
+      } catch (e) {
+        // Ignore
+      }
+
+      if ('caches' in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map((k) => caches.delete(k)));
+      }
+    } catch (e) {
+      console.warn('Refresh error', e);
+    }
+
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 200);
+  };
+
   return (
     <PwaContext.Provider
       value={{
@@ -240,6 +280,7 @@ export const PwaProvider = ({ children }) => {
         setShowInstallModal,
         triggerInstall,
         updateServiceWorker,
+        refreshApp,
         dismissUpdate: () => setNeedRefresh(false),
       }}
     >

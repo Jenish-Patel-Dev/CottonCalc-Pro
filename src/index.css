@@ -514,7 +514,8 @@
 
   .ib.header-icon-btn,
   #th,
-  #header-dl-btn {
+  #header-dl-btn,
+  #header-refresh-btn {
     width: 34px !important;
     height: 34px !important;
     min-width: 34px !important;
@@ -1136,7 +1137,7 @@
   }
 
   /* Non-home views on mobile hide lang and theme from top bar */
-  .top select.lang, .top .header-lang-select, .top #th, .top .mobile-theme-toggle, .top #header-dl-btn, .top .header-dl-btn {
+  .top select.lang, .top .header-lang-select, .top #th, .top .mobile-theme-toggle, .top #header-dl-btn, .top .header-dl-btn, .top #header-refresh-btn {
     display: none !important;
   }
 
@@ -1144,7 +1145,7 @@
     display: inline-block !important;
   }
 
-  .home-view .top #th, .home-view .top .mobile-theme-toggle, .home-view .top #header-dl-btn, .home-view .top .header-dl-btn {
+  .home-view .top #th, .home-view .top .mobile-theme-toggle, .home-view .top #header-dl-btn, .home-view .top .header-dl-btn, .home-view .top #header-refresh-btn {
     display: grid !important;
     width: 34px !important;
     height: 34px !important;
@@ -1314,44 +1315,51 @@
     background: var(--tint) !important;
   }
 
-  /* Home page responsive fit for mobile screens */
+  /* Home page responsive fit for mobile / bottom navigation screens */
   .home-view .view {
     overflow-y: auto !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch !important;
+    padding: 14px 14px calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+    display: block !important;
     height: 100% !important;
-    padding: 12px 14px calc(76px + env(safe-area-inset-bottom, 0px)) !important;
-    display: flex !important;
-    flex-direction: column !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .home-view .wrap {
-    min-height: 100% !important;
+    min-height: auto !important;
     height: auto !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 12px !important;
-    justify-content: space-between !important;
-    max-width: 520px !important;
+    gap: 14px !important;
+    justify-content: flex-start !important;
+    max-width: 100% !important;
     width: 100% !important;
-    margin: 0 auto !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .home-view .tile {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
+    flex: none !important;
+    min-height: auto !important;
+    height: auto !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
-    padding: 15px 16px !important;
-    gap: 10px !important;
+    justify-content: flex-start !important;
+    padding: 16px 18px !important;
+    gap: 12px !important;
     border-radius: 18px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .home-view .tile.plain {
-    flex: 1 1 auto !important;
-    justify-content: space-between !important;
-    gap: 10px !important;
+    flex: none !important;
+    min-height: auto !important;
+    height: auto !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
   }
 
   .home-view .tile .th {
@@ -1399,8 +1407,11 @@
 
   .home-view .tip {
     flex: none !important;
-    padding: 12px 14px;
-    border-radius: 16px;
+    padding: 14px 16px !important;
+    border-radius: 16px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 4px !important;
   }
 
   .home-view .tip b {
@@ -1416,9 +1427,11 @@
 
   .home-view .foot {
     flex: none !important;
-    font-size: 10.5px;
-    line-height: 1.4;
-    padding: 2px 0 6px 0;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    padding: 6px 0 12px 0 !important;
+    text-align: center !important;
+    width: 100% !important;
   }
 
   .seg button {
