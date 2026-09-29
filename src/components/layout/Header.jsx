@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from '../../i18n/LanguageContext';
 import { useTheme } from '../../theme/ThemeContext';
 import { usePwa } from '../../pwa/PwaContext';
-import { IconArrowLeft, IconSidebarToggle, IconSun, IconMoon, IconScale, IconDownload } from '../common/Icons';
+import { IconArrowLeft, IconSidebarToggle, IconSun, IconMoon, IconScale, IconDownload, IconRefresh } from '../common/Icons';
 import GlassSelect from '../common/GlassSelect';
 import PageInfo from '../common/PageInfo';
 
@@ -14,7 +14,7 @@ export const Header = ({
 }) => {
   const { t, language, setLanguage } = useTranslation();
   const { activeTheme, setTheme } = useTheme();
-  const { isInstalled, triggerInstall } = usePwa();
+  const { isInstalled, triggerInstall, refreshApp, isUpdating } = usePwa();
 
   const isDark = activeTheme === 'dark';
 
@@ -124,17 +124,31 @@ export const Header = ({
         {isDark ? <IconMoon size={16} /> : <IconSun size={16} />}
       </button>
 
-      {/* Direct Download/Install Icon Button */}
-      <button
-        type="button"
-        className="ib header-icon-btn"
-        id="header-dl-btn"
-        onClick={triggerInstall}
-        aria-label={t('settings.installBtn')}
-        title={t('settings.installBtn')}
-      >
-        <IconDownload size={16} />
-      </button>
+      {/* If app is installed, show Refresh Button to reload latest updates; otherwise show Install Button */}
+      {isInstalled ? (
+        <button
+          type="button"
+          className="ib header-icon-btn"
+          id="header-refresh-btn"
+          onClick={refreshApp}
+          disabled={isUpdating}
+          aria-label={t('nav.refresh') || 'Refresh Application'}
+          title={t('nav.refresh') || 'Refresh Application'}
+        >
+          <IconRefresh size={16} className={isUpdating ? 'animate-spin' : ''} />
+        </button>
+      ) : (
+        <button
+          type="button"
+          className="ib header-icon-btn"
+          id="header-dl-btn"
+          onClick={triggerInstall}
+          aria-label={t('settings.installBtn')}
+          title={t('settings.installBtn')}
+        >
+          <IconDownload size={16} />
+        </button>
+      )}
     </header>
   );
 };

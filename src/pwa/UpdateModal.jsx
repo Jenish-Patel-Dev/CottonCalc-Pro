@@ -10,14 +10,29 @@ export const UpdateModal = () => {
 
   return (
     <div
-      className="fixed inset-0 z-[100000] flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200 select-none"
+      className="fixed inset-0 z-[100000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-200 select-none"
       role="dialog"
       aria-modal="true"
       aria-labelledby="update-dialog-title"
     >
-      <div className="glass-level-4 max-w-sm w-full p-6 shadow-2xl space-y-5 animate-in zoom-in duration-200 border border-white/30 dark:border-white/15 rounded-2xl text-center flex flex-col items-center">
+      <div
+        className="max-w-sm w-full p-6 space-y-5 animate-in zoom-in duration-200 rounded-2xl text-center flex flex-col items-center"
+        style={{
+          background: 'var(--surf)',
+          border: '1px solid var(--line)',
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1)',
+          color: 'var(--text)',
+        }}
+      >
         {/* Animated Brand Sync Icon */}
-        <div className="w-16 h-16 rounded-2xl bg-indigo-600/20 text-indigo-500 flex items-center justify-center border border-indigo-500/30 shadow-lg shadow-indigo-500/20">
+        <div
+          className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-md"
+          style={{
+            background: 'var(--tint)',
+            color: 'var(--primary)',
+            border: '1px solid var(--line)',
+          }}
+        >
           <svg
             className={`w-8 h-8 ${isUpdating ? 'animate-spin' : 'animate-bounce'}`}
             viewBox="0 0 24 24"
@@ -35,11 +50,23 @@ export const UpdateModal = () => {
         <div className="space-y-2">
           <h3
             id="update-dialog-title"
-            className="font-extrabold text-app-primary text-lg tracking-tight"
+            style={{
+              color: 'var(--text)',
+              fontSize: '18px',
+              fontWeight: 800,
+              lineHeight: 1.3,
+            }}
           >
             {t('pwa.updateTitle')}
           </h3>
-          <p className="text-xs text-app-secondary font-medium leading-relaxed">
+          <p
+            style={{
+              color: 'var(--muted)',
+              fontSize: '13px',
+              fontWeight: 600,
+              lineHeight: 1.5,
+            }}
+          >
             {t('pwa.updateText')}
           </p>
         </div>
@@ -50,15 +77,21 @@ export const UpdateModal = () => {
             type="button"
             onClick={updateServiceWorker}
             disabled={isUpdating}
-            className="w-full py-3 px-4 glass-button-primary text-sm font-extrabold min-h-[46px] rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25 active:scale-98 transition-all"
+            className="w-full py-3 px-4 glass-button-primary text-sm font-extrabold min-h-[46px] rounded-xl flex items-center justify-center gap-2 shadow-lg active:scale-98 transition-all"
+            style={{
+              background: 'var(--primary)',
+              color: 'var(--pi)',
+              cursor: isUpdating ? 'not-allowed' : 'pointer',
+            }}
           >
             {isUpdating ? (
               <>
                 <svg
-                  className="animate-spin h-4 w-4 text-white"
+                  className="animate-spin h-4 w-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
+                  style={{ color: 'var(--pi)' }}
                 >
                   <circle
                     className="opacity-25"
@@ -101,7 +134,13 @@ export const UpdateModal = () => {
             <button
               type="button"
               onClick={dismissUpdate}
-              className="w-full py-2.5 px-4 glass-button-secondary text-xs font-semibold min-h-[40px] rounded-xl hover:bg-white/20 dark:hover:bg-white/10 transition-colors"
+              className="w-full py-2.5 px-4 text-xs font-semibold min-h-[40px] rounded-xl transition-colors"
+              style={{
+                background: 'var(--surf2)',
+                color: 'var(--muted)',
+                border: '1px solid var(--line)',
+                cursor: 'pointer',
+              }}
             >
               {t('pwa.later')}
             </button>

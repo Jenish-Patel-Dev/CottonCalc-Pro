@@ -188,16 +188,20 @@ export const OilProfitTab = ({
         <div
           className="card"
           style={{
-            background: isProfitable ? 'var(--side)' : 'var(--badtint)',
+            background: isProfitable
+              ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, var(--side) 100%)'
+              : 'var(--badtint)',
             color: isProfitable ? '#fff' : 'var(--bad)',
-            border: isProfitable ? '1px solid rgba(127, 211, 255, 0.3)' : '1px solid var(--bad)',
+            border: isProfitable
+              ? '1px solid rgba(16, 185, 129, 0.4)'
+              : '1px solid var(--bad)',
             marginTop: '14px',
           }}
         >
           <div
             className="lbl"
             style={{
-              color: isProfitable ? '#7FD3FF' : 'var(--bad)',
+              color: isProfitable ? '#10B981' : 'var(--bad)',
               marginBottom: '6px',
             }}
           >
@@ -209,7 +213,7 @@ export const OilProfitTab = ({
                 fontSize: '32px',
                 fontWeight: 800,
                 fontVariantNumeric: 'tabular-nums',
-                color: isProfitable ? '#fff' : 'var(--bad)',
+                color: isProfitable ? '#10B981' : 'var(--bad)',
               }}
             >
               ₹ {formatCurrency(Math.abs(parsedProfit))}
@@ -218,7 +222,7 @@ export const OilProfitTab = ({
               style={{
                 fontSize: '13px',
                 fontWeight: 700,
-                color: isProfitable ? '#AAB5F0' : 'var(--bad)',
+                color: isProfitable ? '#6EE7B7' : 'var(--bad)',
               }}
             >
               {t('oil.perTon')}
@@ -230,13 +234,13 @@ export const OilProfitTab = ({
               marginTop: '10px',
               paddingTop: '10px',
               borderTop: isProfitable
-                ? '1px solid rgba(255,255,255,0.15)'
+                ? '1px solid rgba(16, 185, 129, 0.25)'
                 : '1px solid rgba(214, 59, 79, 0.3)',
               fontWeight: 800,
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              color: isProfitable ? '#7FD3FF' : 'var(--bad)',
+              color: isProfitable ? '#10B981' : 'var(--bad)',
             }}
           >
             {isProfitable ? (

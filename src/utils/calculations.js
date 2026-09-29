@@ -171,6 +171,7 @@ export function calculateOilProfitAndParity({
   const safeOilExpense = parseFloat(oilExpense) || 0;
   const safeOilRec = parseFloat(oilRecoveryPercent) || 0;
   const safeCakeRec = parseFloat(cakeRecoveryPercent) || 0;
+  const safeCakeSellUnit = parseFloat(cakeSellUnit) || 50;
 
   const ONE_TON = 1000;
 
@@ -212,7 +213,7 @@ export function calculateOilProfitAndParity({
       const revenueOil = (oilYieldKg / oilSellUnit) * safeOilSellRate;
       const remainingCost = totalCost - revenueOil;
       const costPerKgCake = remainingCost / cakeYieldKg;
-      const costPerUnitCake = costPerKgCake * cakeSellUnit;
+      const costPerUnitCake = costPerKgCake * safeCakeSellUnit;
       khalParityCost = costPerUnitCake.toFixed(0);
     }
   }

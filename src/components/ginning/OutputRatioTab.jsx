@@ -135,7 +135,10 @@ export const OutputRatioTab = ({
 
         {/* Balance Warning (if total != 100%) */}
         {showWarning && (
-          <div className="p-3 bg-[var(--bad-tint)] border border-[var(--bad)] rounded-xl text-xs font-bold text-[var(--bad)] flex items-center justify-between">
+          <div
+            className="p-3 bg-[var(--bad-tint)] border border-[var(--bad)] rounded-xl text-xs font-bold text-[var(--bad)] flex items-center justify-between"
+            style={{ marginTop: '14px' }}
+          >
             <span>{t('ginning.balanceWarning', { percent: totalPercent })}</span>
           </div>
         )}
@@ -158,8 +161,9 @@ export const OutputRatioTab = ({
               background: `conic-gradient(var(--primary) 0% ${gotPercent}%, var(--gold) ${gotPercent}% ${seedEnd}%, var(--bad) ${seedEnd}% 100%)`,
             }}
           >
-            <div>
-              <span id="gt">{gotPercent}%</span>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+              <span id="gt" style={{ fontSize: '20px', lineHeight: 1.1 }}>{gotPercent}%</span>
+              <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--muted)', letterSpacing: '0.06em', marginTop: '3px' }}>GOT</span>
             </div>
           </div>
 

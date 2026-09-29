@@ -8,6 +8,7 @@ import {
   IconMonitor,
   IconDownload,
   IconCheck,
+  IconShare,
 } from '../common/Icons';
 
 export const SettingsPage = () => {
@@ -15,6 +16,48 @@ export const SettingsPage = () => {
   const { themeMode, setTheme } = useTheme();
   const { isInstallable, isInstalled, triggerInstall, platform } = usePwa();
   const [resetMessage, setResetMessage] = useState(false);
+  const [shareFeedback, setShareFeedback] = useState(false);
+
+  const handleShareApp = async () => {
+    const shareUrl = window.location.origin;
+    const shareData = {
+      title: 'CottonCalc Pro',
+      text: 'CottonCalc Pro - Cotton Ginning & Oil Mill Calculator',
+      url: shareUrl,
+    };
+
+    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          copyShareLink(shareUrl);
+        }
+      }
+    } else {
+      copyShareLink(shareUrl);
+    }
+  };
+
+  const copyShareLink = async (url) => {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(url);
+      } else {
+        const input = document.createElement('input');
+        input.value = url;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+      }
+      setShareFeedback(true);
+      setTimeout(() => setShareFeedback(false), 2500);
+    } catch {
+      setShareFeedback(true);
+      setTimeout(() => setShareFeedback(false), 2500);
+    }
+  };
 
   const handleResetPreferences = () => {
     localStorage.removeItem('cotton_calc_theme');
@@ -110,6 +153,46 @@ export const SettingsPage = () => {
             ? t('settings.installInstructionsMobile')
             : t('settings.installInstructionsDesktop')}
         </p>
+      </div>
+
+      {/* 4. Share Application */}
+      <div className="card glass">
+        <div className="lbl">
+          <IconShare size={15} />
+          <span>{t('settings.shareTitle').toUpperCase()}</span>
+        </div>
+        <div className="status settings-status-row" style={{ background: 'none', border: 0, padding: 0 }}>
+          <p style={{ fontSize: '13.5px', color: 'var(--muted)', margin: 0, lineHeight: 1.5, flex: 1 }}>
+            {t('settings.shareDescription')}
+          </p>
+          <button
+            type="button"
+            onClick={handleShareApp}
+            className="btn"
+            style={{
+              background: shareFeedback ? '#10B981' : 'var(--primary)',
+              color: '#ffffff',
+              boxShadow: shareFeedback
+                ? '0 4px 14px rgba(16, 185, 129, 0.4)'
+                : '0 4px 14px rgba(34, 46, 137, 0.25)',
+              border: 0,
+              padding: '11px 22px',
+              fontSize: '13.5px',
+              fontWeight: 800,
+              whiteSpace: 'nowrap',
+              transition: 'all 200ms ease',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              borderRadius: '12px',
+              cursor: 'pointer',
+            }}
+          >
+            {shareFeedback ? <IconCheck size={18} /> : <IconShare size={18} />}
+            <span>{shareFeedback ? t('settings.linkCopied') : t('settings.shareBtn')}</span>
+          </button>
+        </div>
       </div>
 
       {/* 4. About Application & Industry Reference */}
