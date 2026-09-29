@@ -1,15 +1,27 @@
 {
-  "name": "Ginning Master - Cotton & Oil Mill Calculator",
-  "short_name": "Ginning Master",
+  "name": "CottonCalc Pro - Ginning & Oil Mill Calculator",
+  "short_name": "CottonCalc Pro",
   "description": "Professional Cotton Ginning GOT, Cost Parity, Reverse Parity and Cottonseed Oil Mill Crushing Calculator.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#f8fafc",
-  "theme_color": "#4338ca",
+  "background_color": "#080A1D",
+  "theme_color": "#3B4FE0",
   "categories": ["business", "finance", "productivity", "utilities"],
   "icons": [
+    {
+      "src": "/assets/logos/logo-light-icon.png",
+      "sizes": "192x192 512x512 1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/logos/logo-light-icon.png",
+      "sizes": "192x192 512x512 1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
@@ -17,22 +29,10 @@
       "purpose": "any"
     },
     {
-      "src": "/icon-maskable-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
       "src": "/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "/icon-maskable-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
     },
     {
       "src": "/favicon.svg",

@@ -1858,3 +1858,15 @@
     display: flex !important;
   }
 }
+
+/* Splash Screen Animation */
+@keyframes splashShimmer {
+  0% { left: -45%; }
+  50% { left: 40%; width: 55%; }
+  100% { left: 100%; width: 45%; }
+}
+
+@keyframes splashFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}

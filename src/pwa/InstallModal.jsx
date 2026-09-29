@@ -17,7 +17,7 @@ export const InstallModal = () => {
       <div className="glass-level-4 max-w-sm w-full p-6 shadow-2xl space-y-5 animate-in zoom-in duration-200 border border-white/30 dark:border-white/15 rounded-2xl">
         <div className="flex items-center gap-3.5">
           <img
-            src={isDark ? '/assets/logos/logo-dark-icon.png' : '/assets/logos/logo-light-icon.png'}
+            src="/assets/logos/logo-light-icon.png"
             alt="CottonCalc Pro"
             style={{ width: '50px', height: '50px', objectFit: 'contain', background: 'transparent', display: 'block' }}
             className="flex-shrink-0"

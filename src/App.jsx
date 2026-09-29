@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './theme/ThemeContext';
 import { LanguageProvider } from './i18n/LanguageContext';
 import { PwaProvider } from './pwa/PwaContext';
@@ -7,18 +7,40 @@ import HomeScreen from './components/home/HomeScreen';
 import GinningCalculator from './components/ginning/GinningCalculator';
 import OilMillCalculator from './components/oil/OilMillCalculator';
 import SettingsPage from './components/settings/SettingsPage';
+import SplashScreen from './components/common/SplashScreen';
 
 function AppContent() {
   // Navigation view: 'home' | 'ginning' | 'oil' | 'settings'
   const [currentView, setCurrentView] = useState('home');
+  const [showSplash, setShowSplash] = useState(true);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+
+  useEffect(() => {
+    // Show splash on initial load and page refresh, then smoothly fade out
+    const fadeTimer = setTimeout(() => {
+      setIsFadingOut(true);
+    }, 550);
+
+    const removeTimer = setTimeout(() => {
+      setShowSplash(false);
+    }, 850);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(removeTimer);
+    };
+  }, []);
 
   return (
-    <AppLayout currentView={currentView} onSelectView={setCurrentView}>
-      {currentView === 'home' && <HomeScreen onSelectView={setCurrentView} />}
-      {currentView === 'ginning' && <GinningCalculator />}
-      {currentView === 'oil' && <OilMillCalculator />}
-      {currentView === 'settings' && <SettingsPage />}
-    </AppLayout>
+    <>
+      {showSplash && <SplashScreen isFadingOut={isFadingOut} />}
+      <AppLayout currentView={currentView} onSelectView={setCurrentView}>
+        {currentView === 'home' && <HomeScreen onSelectView={setCurrentView} />}
+        {currentView === 'ginning' && <GinningCalculator />}
+        {currentView === 'oil' && <OilMillCalculator />}
+        {currentView === 'settings' && <SettingsPage />}
+      </AppLayout>
+    </>
   );
 }
 

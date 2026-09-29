@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- PWA Primary Theme Color -->
-    <meta name="theme-color" content="#F0F2FC" />
+    <meta name="theme-color" content="#3B4FE0" />
     <meta name="color-scheme" content="light dark" />
 
     <!-- Application Metadata -->
@@ -39,15 +39,140 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="CottonCalc Pro" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logos/logo-light-icon.png" />
 
-    <!-- Favicon & Manifest -->
+    <!-- Favicon & Manifest (Using Simple Light Logo) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logos/logo-light-icon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Instant Zero-Delay Brand Splash Styles for Initial Load & Page Refresh -->
+    <style>
+      #splash-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #F0F2FC;
+        font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+      [data-theme="dark"] #splash-screen,
+      .dark #splash-screen {
+        background-color: #080A1D;
+      }
+      .splash-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+        padding: 32px;
+      }
+      .splash-logo-wrap {
+        width: 104px;
+        height: 104px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: drop-shadow(0 12px 28px rgba(59, 79, 224, 0.22));
+        animation: splashFloat 2.4s ease-in-out infinite;
+      }
+      .splash-logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+      .splash-brand-text {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+      }
+      .splash-title {
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin: 0;
+        background: linear-gradient(135deg, #1B2673 0%, #3B4FE0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      [data-theme="dark"] .splash-title,
+      .dark .splash-title {
+        background: linear-gradient(135deg, #ECEEFF 0%, #7FD3FF 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .splash-subtitle {
+        font-size: 13px;
+        font-weight: 600;
+        color: #5B628F;
+        letter-spacing: 0.04em;
+        margin: 0;
+      }
+      [data-theme="dark"] .splash-subtitle,
+      .dark .splash-subtitle {
+        color: #9AA3D6;
+      }
+      .splash-loader-bar {
+        width: 140px;
+        height: 4px;
+        background: rgba(59, 79, 224, 0.14);
+        border-radius: 9999px;
+        overflow: hidden;
+        position: relative;
+        margin-top: 6px;
+      }
+      [data-theme="dark"] .splash-loader-bar,
+      .dark .splash-loader-bar {
+        background: rgba(127, 211, 255, 0.16);
+      }
+      .splash-loader-indicator {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 45%;
+        border-radius: 9999px;
+        background: linear-gradient(90deg, #3B4FE0, #7FD3FF);
+        animation: splashShimmer 1.4s ease-in-out infinite;
+      }
+      @keyframes splashFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+      @keyframes splashShimmer {
+        0% { left: -45%; }
+        50% { left: 40%; width: 55%; }
+        100% { left: 100%; width: 45%; }
+      }
+    </style>
   </head>
   <body class="bg-app-bg text-app-text antialiased selection:bg-blue-500 selection:text-white transition-colors duration-200">
-    <div id="root"></div>
+    <div id="root">
+      <!-- Instant Brand Splash Screen shown on page reload/refresh before React hydrates -->
+      <div id="splash-screen" aria-label="Loading CottonCalc Pro">
+        <div class="splash-card">
+          <div class="splash-logo-wrap">
+            <img
+              src="/assets/logos/logo-light-icon.png"
+              alt="CottonCalc Pro"
+              class="splash-logo"
+            />
+          </div>
+          <div class="splash-brand-text">
+            <h1 class="splash-title">CottonCalc Pro</h1>
+            <p class="splash-subtitle">Ginning &amp; Oil Mill Calculator</p>
+          </div>
+          <div class="splash-loader-bar">
+            <div class="splash-loader-indicator"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
