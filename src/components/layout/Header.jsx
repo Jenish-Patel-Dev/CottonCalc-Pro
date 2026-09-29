@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from '../../i18n/LanguageContext';
 import { useTheme } from '../../theme/ThemeContext';
 import { usePwa } from '../../pwa/PwaContext';
-import { IconArrowLeft, IconSidebarToggle, IconSun, IconMoon, IconScale, IconDownload, IconRefresh } from '../common/Icons';
+import { IconSidebarToggle, IconSun, IconMoon, IconScale, IconDownload, IconRefresh } from '../common/Icons';
 import GlassSelect from '../common/GlassSelect';
 import PageInfo from '../common/PageInfo';
 
@@ -62,20 +62,6 @@ export const Header = ({
         <IconSidebarToggle isCollapsed={isSidebarCollapsed} size={20} />
       </button>
 
-      {/* Mobile Subpage Back Button (shown ONLY on mobile screens when not on home) */}
-      {currentView !== 'home' && (
-        <button
-          type="button"
-          className="ib mobile-back-btn"
-          id="bk"
-          onClick={onNavigateHome}
-          aria-label={t('nav.back')}
-          title={t('nav.back')}
-        >
-          <IconArrowLeft />
-        </button>
-      )}
-
       {/* Mobile Brand Title on Home */}
       <div className="mb cursor-pointer select-none" onClick={onNavigateHome}>
         <img
@@ -93,11 +79,6 @@ export const Header = ({
 
       {/* Spacer */}
       <div className="sp flex-1" />
-
-      {/* Page Information Button for the 3 main pages */}
-      {['ginning', 'oil', 'settings'].includes(currentView) && (
-        <PageInfo pageId={currentView} />
-      )}
 
       {/* Language Select Dropdown - Image 1 LOV UI */}
       <GlassSelect
@@ -148,6 +129,11 @@ export const Header = ({
         >
           <IconDownload size={16} />
         </button>
+      )}
+
+      {/* Page Information Button for the 3 main pages (placed at the very end on the right) */}
+      {['ginning', 'oil', 'settings'].includes(currentView) && (
+        <PageInfo pageId={currentView} />
       )}
     </header>
   );
