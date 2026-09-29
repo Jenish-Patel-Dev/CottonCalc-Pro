@@ -92,11 +92,13 @@
     background: var(--side);
     color: var(--sidetext);
     border: 0;
+    border-right: 1px solid var(--line);
     display: flex;
     flex-direction: column;
     padding: 0 12px 14px;
     gap: 8px;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   .brand {
@@ -104,10 +106,13 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    min-height: 68px;
-    margin: 0 -12px 8px;
+    height: 70px;
+    min-height: 70px;
+    max-height: 70px;
+    margin: 0 -12px 10px;
     padding: 0 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--line);
+    box-sizing: border-box;
     font-weight: 800;
     font-size: 19px;
     letter-spacing: -0.02em;
@@ -131,8 +136,8 @@
   }
 
   .brand-logo-img.full-logo {
-    max-height: 42px;
-    max-width: 172px;
+    max-height: 40px;
+    max-width: 168px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -220,8 +225,8 @@
 
   .side .nav-item.active {
     background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.16);
     color: #ffffff;
-    box-shadow: inset 3px 0 0 var(--side-accent);
     font-weight: 700;
   }
 
@@ -232,7 +237,7 @@
     display: grid;
     place-items: center;
     flex: none;
-    transition: background 200ms ease, color 200ms ease;
+    transition: background 180ms ease, color 180ms ease;
   }
 
   .side .nav-item.active .ni {
@@ -249,9 +254,13 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 10px 4px !important;
-    min-height: 68px !important;
-    margin: 0 -8px 8px !important;
+    padding: 0 4px !important;
+    height: 70px !important;
+    min-height: 70px !important;
+    max-height: 70px !important;
+    margin: 0 -8px 10px !important;
+    border-bottom: 1px solid var(--line) !important;
+    box-sizing: border-box !important;
   }
 
   .app-shell.collapsed .brand-logo-wrap {
@@ -414,9 +423,12 @@
     border-bottom: 1px solid var(--line);
     display: flex;
     align-items: center;
-    gap: 12px;
-    min-height: 72px;
-    padding: 0 24px;
+    gap: 14px;
+    height: 70px;
+    min-height: 70px;
+    max-height: 70px;
+    box-sizing: border-box;
+    padding: 0 20px;
   }
 
   .mb {
@@ -1444,6 +1456,8 @@
     height: 100%;
     height: 100dvh;
     overflow: hidden;
+    border-right: 1px solid var(--line);
+    box-sizing: border-box;
   }
 
   .main {
@@ -1460,6 +1474,12 @@
     top: 0;
     z-index: 20;
     flex: none;
+    height: 70px !important;
+    min-height: 70px !important;
+    max-height: 70px !important;
+    box-sizing: border-box !important;
+    padding: 0 20px !important;
+    border-bottom: 1px solid var(--line) !important;
   }
 
   .view {
