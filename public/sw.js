@@ -1,7 +1,8 @@
-const CACHE_NAME = 'cottoncalc-v-1790675191616';
+const CACHE_NAME = 'cottoncalc-v-1790677076853';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
+  '/manifest.json',
   '/manifest.webmanifest',
   '/favicon.svg',
   '/icon-192.png',
@@ -14,9 +15,17 @@ const PRECACHE_ASSETS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(PRECACHE_ASSETS);
+      return Promise.allSettled(
+        PRECACHE_ASSETS.map((asset) =>
+          cache.add(asset).catch((err) => {
+            console.warn('[SW] Cache add skipped for:', asset, err);
+          })
+        )
+      );
     })
   );
+  // Activate immediately so Chrome/Chromium recognizes active SW and triggers WebAPK installability prompt
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
