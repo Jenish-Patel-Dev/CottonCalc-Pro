@@ -94,9 +94,12 @@ export const HomeScreen = ({ onSelectView }) => {
           </span>
         </div>
         <div className="chips">
-          <span>{t('settings.appearanceTitle')}</span>
+          <span>{t('settings.theme')}</span>
           <span>{t('settings.languageTitle')}</span>
-          <span>{t('settings.installBtn')}</span>
+          <span>{t('settings.installBtnShort') || 'Install'}</span>
+        </div>
+        <div className="tstat">
+          PWA App &bull; <b>{t('settings.storageTitle')}</b>
         </div>
       </div>
 

@@ -109,6 +109,7 @@
     "standaloneRunning": "સ્ટેન્ડઅલોન એપ મોડમાં ઇન્સ્ટોલ અને ચાલુ છે",
     "browserRunning": "બ્રાઉઝર મોડમાં ચાલુ છે",
     "installBtn": "એપ ઇન્સ્ટોલ કરો",
+    "installBtnShort": "ઇન્સ્ટોલ",
     "installSuccess": "સફળતાપૂર્વક ઇન્સ્ટોલ થઈ ગયું",
     "installInstructionsDesktop": "ડેસ્કટોપ બ્રાઉઝરમાં, આ એપ ઇન્સ્ટોલ કરવા માટે એડ્રેસ બારમાં 'Install' આઇકોન પર ક્લિક કરો.",
     "installInstructionsMobile": "મોબાઇલ બ્રાઉઝરમાં મેનૂ ખોલો અને 'Add to Home screen' અથવા 'Install App' પસંદ કરો.",

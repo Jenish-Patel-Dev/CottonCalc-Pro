@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import MobileNavigation from './MobileNavigation';
@@ -16,6 +16,12 @@ export const AppLayout = ({ currentView, onSelectView, children }) => {
       return false;
     }
   });
+
+  // Always reset scroll to top when switching views/pages on all screen sizes
+  useEffect(() => {
+    const el = document.getElementById('main-content-scroll');
+    if (el) el.scrollTop = 0;
+  }, [currentView]);
 
   const handleToggleCollapse = () => {
     setIsSidebarCollapsed((prev) => {

@@ -109,6 +109,7 @@
     "standaloneRunning": "स्टैंडअलोन ऐप मोड में इंस्टॉल और सक्रिय",
     "browserRunning": "ब्राउज़र मोड में सक्रिय",
     "installBtn": "ऐप इंस्टॉल करें",
+    "installBtnShort": "इंस्टॉल",
     "installSuccess": "सफलतापूर्वक इंस्टॉल हुआ",
     "installInstructionsDesktop": "डेस्कटॉप ब्राउज़र में, इस ऐप को इंस्टॉल करने के लिए एड्रेस बार में 'Install' आइकन पर क्लिक करें।",
     "installInstructionsMobile": "मोबाइल ब्राउज़र में मेनू खोलें और 'होम स्क्रीन पर जोड़ें' या 'Install App' चुनें।",

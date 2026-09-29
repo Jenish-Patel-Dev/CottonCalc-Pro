@@ -109,6 +109,7 @@
     "standaloneRunning": "Installed & Running in Standalone App Mode",
     "browserRunning": "Running in Browser Mode",
     "installBtn": "Install Application",
+    "installBtnShort": "Install",
     "installSuccess": "Installed Successfully",
     "installInstructionsDesktop": "On desktop browsers, click the Install icon in the address bar to install this app.",
     "installInstructionsMobile": "On mobile browsers, open the browser menu and select 'Add to Home screen' or 'Install App'.",
