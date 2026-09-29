@@ -515,7 +515,8 @@
   .ib.header-icon-btn,
   #th,
   #header-dl-btn,
-  #header-refresh-btn {
+  #header-refresh-btn,
+  .page-info-trigger {
     width: 34px !important;
     height: 34px !important;
     min-width: 34px !important;
@@ -1124,7 +1125,7 @@
   }
 
   .mobile-back-btn {
-    display: grid !important;
+    display: none !important;
   }
 
   /* Top bar conditional elements on mobile */
@@ -1136,23 +1137,52 @@
     display: flex;
   }
 
-  /* Non-home views on mobile hide lang and theme from top bar */
-  .top select.lang, .top .header-lang-select, .top #th, .top .mobile-theme-toggle, .top #header-dl-btn, .top .header-dl-btn, .top #header-refresh-btn {
-    display: none !important;
-  }
-
-  .home-view .top select.lang, .home-view .top .header-lang-select {
+  /* Top bar elements on ALL views on mobile */
+  .top select.lang,
+  .top .header-lang-select {
     display: inline-block !important;
+    vertical-align: middle;
   }
 
-  .home-view .top #th, .home-view .top .mobile-theme-toggle, .home-view .top #header-dl-btn, .home-view .top .header-dl-btn, .home-view .top #header-refresh-btn {
+  .top .header-lang-btn {
+    min-height: 34px !important;
+    height: 34px !important;
+    padding: 0 8px !important;
+    font-size: 12px !important;
+  }
+
+  .top #th,
+  .top .mobile-theme-toggle,
+  .top #header-dl-btn,
+  .top .header-dl-btn,
+  .top #header-refresh-btn,
+  .top .page-info-trigger {
     display: grid !important;
+    place-items: center !important;
     width: 34px !important;
     height: 34px !important;
     min-width: 34px !important;
     max-width: 34px !important;
     min-height: 34px !important;
     max-height: 34px !important;
+    border-radius: 12px !important;
+  }
+
+  .top .tx {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .top .tx h1 {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+  }
+
+  .top .tx p {
+    font-size: 10.5px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
   }
 
   .view {
