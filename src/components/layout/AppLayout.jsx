@@ -5,6 +5,7 @@ import MobileNavigation from './MobileNavigation';
 import OfflineBanner from '../../pwa/OfflineBanner';
 import UpdateBanner from '../../pwa/UpdateBanner';
 import InstallModal from '../../pwa/InstallModal';
+import UpdateModal from '../../pwa/UpdateModal';
 
 const SIDEBAR_STORAGE_KEY = 'cotton_calc_sidebar_collapsed';
 
@@ -80,6 +81,9 @@ export const AppLayout = ({ currentView, onSelectView, children }) => {
 
       {/* PWA Installation Guidance Modal */}
       <InstallModal />
+
+      {/* PWA Direct Instant Update Modal */}
+      <UpdateModal />
     </div>
   );
 };
