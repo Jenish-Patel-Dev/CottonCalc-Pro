@@ -8,9 +8,8 @@
     <script>
       (function() {
         try {
-          var saved = localStorage.getItem('cotton_calc_theme') || 'system';
-          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var isDark = saved === 'dark' || (saved === 'system' && prefersDark);
+          var saved = localStorage.getItem('cotton_calc_theme') || 'light';
+          var isDark = saved === 'dark';
           if (isDark) {
             document.documentElement.classList.add('dark');
             document.documentElement.setAttribute('data-theme', 'dark');

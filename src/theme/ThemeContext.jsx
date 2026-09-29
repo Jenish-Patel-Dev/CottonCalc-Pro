@@ -13,22 +13,22 @@ const getSystemTheme = () => {
 
 const getInitialActiveTheme = (mode) => {
   if (mode === 'dark') return 'dark';
-  if (mode === 'light') return 'light';
-  return getSystemTheme();
+  if (mode === 'system') return getSystemTheme();
+  return 'light';
 };
 
 export const ThemeProvider = ({ children }) => {
-  // 'system' | 'light' | 'dark'
+  // 'light' | 'dark' | 'system'
   const [themeMode, setThemeMode] = useState(() => {
     try {
-      return localStorage.getItem(THEME_STORAGE_KEY) || 'system';
+      return localStorage.getItem(THEME_STORAGE_KEY) || 'light';
     } catch {
-      return 'system';
+      return 'light';
     }
   });
 
   const [activeTheme, setActiveTheme] = useState(() => {
-    const saved = (typeof window !== 'undefined' && localStorage.getItem(THEME_STORAGE_KEY)) || 'system';
+    const saved = (typeof window !== 'undefined' && localStorage.getItem(THEME_STORAGE_KEY)) || 'light';
     return getInitialActiveTheme(saved);
   });
 

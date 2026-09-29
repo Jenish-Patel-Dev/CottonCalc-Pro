@@ -20,7 +20,7 @@ export const SettingsPage = () => {
     localStorage.removeItem('cotton_calc_theme');
     localStorage.removeItem('cotton_calc_lang');
     localStorage.removeItem('cotton_calc_sidebar_collapsed');
-    setTheme('system');
+    setTheme('light');
     setLanguage('en');
     setResetMessage(true);
     setTimeout(() => setResetMessage(false), 3000);
