@@ -1147,6 +1147,22 @@
     margin-left: auto;
   }
 
+  .settings-status-row,
+  .settings-reset-row,
+  .settings-disclaimer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .settings-disclaimer-row .btn {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
   /* Bottom Tabbar Component (Mobile) */
   .tabbar {
     display: none;

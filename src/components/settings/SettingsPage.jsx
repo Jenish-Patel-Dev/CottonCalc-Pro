@@ -18,7 +18,7 @@ export const SettingsPage = () => {
   const { t, language, setLanguage } = useTranslation();
   const { themeMode, setTheme } = useTheme();
   const { isInstallable, isInstalled, triggerInstall, platform } = usePwa();
-  const { openDisclaimer } = useDisclaimer();
+  const { openReview, acceptedDate, hasAccepted, appVersion } = useDisclaimer();
   const [resetMessage, setResetMessage] = useState(false);
   const [shareFeedback, setShareFeedback] = useState(false);
 
@@ -213,55 +213,72 @@ export const SettingsPage = () => {
         </div>
       </div>
 
-      {/* 5. Legal & Disclaimer Card */}
+      {/* 5. Legal & Terms / Disclaimer Card */}
       <div className="card glass">
         <div className="lbl flex items-center justify-between">
           <div className="flex items-center gap-2">
             <IconShieldAlert size={16} />
-            <span>{t('disclaimer.title').toUpperCase()}</span>
+            <span>{(t('termsGate.settingsTitle') || t('disclaimer.title')).toUpperCase()}</span>
           </div>
           <span
             style={{
               fontSize: '11px',
               fontWeight: 800,
-              padding: '2px 8px',
+              padding: '3px 10px',
               borderRadius: '999px',
-              background: 'rgba(239, 68, 68, 0.1)',
-              color: '#EF4444',
+              background: hasAccepted ? 'rgba(16, 185, 129, 0.12)' : 'rgba(239, 68, 68, 0.1)',
+              color: hasAccepted ? '#10B981' : '#EF4444',
               letterSpacing: '0.04em',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px',
             }}
           >
-            {t('disclaimer.badge')}
+            {hasAccepted && <IconCheck size={13} />}
+            {hasAccepted
+              ? (t('termsGate.settingsBadge') || 'ACCEPTED')
+              : (t('termsGate.settingsPending') || 'PENDING')}
           </span>
         </div>
         <p style={{ fontSize: '13.5px', color: 'var(--muted)', lineHeight: 1.6, margin: '8px 0 12px' }}>
-          {t('disclaimer.intro')}
+          {hasAccepted && acceptedDate
+            ? (t('termsGate.settingsNote')
+                ? t('termsGate.settingsNote').replace('{date}', acceptedDate)
+                : `Accepted on ${acceptedDate} (v${appVersion})`)
+            : t('disclaimer.intro')}
         </p>
         <div
-          className="settings-disclaimer-row"
+          className="status settings-disclaimer-row"
           style={{
-            paddingTop: '12px',
+            background: 'none',
+            border: 0,
+            padding: '14px 0 0',
             borderTop: '1px solid var(--line)',
+            borderRadius: 0,
           }}
         >
-          <span style={{ fontSize: '12.5px', fontWeight: 600, color: 'var(--muted)' }}>
-            {t('disclaimer.acceptance')}
+          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--muted)', flex: 1, lineHeight: 1.4 }}>
+            {hasAccepted
+              ? (t('termsGate.settingsAccepted') || 'Accepted & Active')
+              : t('disclaimer.acceptance')}
           </span>
           <button
             type="button"
-            onClick={openDisclaimer}
+            onClick={openReview}
             className="btn sm"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '6px',
               background: 'var(--primary)',
               color: 'var(--pi)',
               fontWeight: 700,
+              whiteSpace: 'nowrap',
             }}
           >
             <IconShieldAlert size={15} />
-            <span>{t('disclaimer.readFull')}</span>
+            <span>{t('termsGate.viewTerms') || t('disclaimer.readFull')}</span>
           </button>
         </div>
       </div>
