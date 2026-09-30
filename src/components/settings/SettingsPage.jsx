@@ -9,12 +9,16 @@ import {
   IconDownload,
   IconCheck,
   IconShare,
+  IconShieldAlert,
 } from '../common/Icons';
+import { useDisclaimer } from '../common/DisclaimerContext';
+import AppFooter from '../common/AppFooter';
 
 export const SettingsPage = () => {
   const { t, language, setLanguage } = useTranslation();
   const { themeMode, setTheme } = useTheme();
   const { isInstallable, isInstalled, triggerInstall, platform } = usePwa();
+  const { openDisclaimer } = useDisclaimer();
   const [resetMessage, setResetMessage] = useState(false);
   const [shareFeedback, setShareFeedback] = useState(false);
 
@@ -209,7 +213,60 @@ export const SettingsPage = () => {
         </div>
       </div>
 
-      {/* 5. Storage & Reset */}
+      {/* 5. Legal & Disclaimer Card */}
+      <div className="card glass">
+        <div className="lbl flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <IconShieldAlert size={16} />
+            <span>{t('disclaimer.title').toUpperCase()}</span>
+          </div>
+          <span
+            style={{
+              fontSize: '11px',
+              fontWeight: 800,
+              padding: '2px 8px',
+              borderRadius: '999px',
+              background: 'rgba(239, 68, 68, 0.1)',
+              color: '#EF4444',
+              letterSpacing: '0.04em',
+            }}
+          >
+            {t('disclaimer.badge')}
+          </span>
+        </div>
+        <p style={{ fontSize: '13.5px', color: 'var(--muted)', lineHeight: 1.6, margin: '8px 0 12px' }}>
+          {t('disclaimer.intro')}
+        </p>
+        <div
+          className="settings-disclaimer-row"
+          style={{
+            paddingTop: '12px',
+            borderTop: '1px solid var(--line)',
+          }}
+        >
+          <span style={{ fontSize: '12.5px', fontWeight: 600, color: 'var(--muted)' }}>
+            {t('disclaimer.acceptance')}
+          </span>
+          <button
+            type="button"
+            onClick={openDisclaimer}
+            className="btn sm"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: 'var(--primary)',
+              color: 'var(--pi)',
+              fontWeight: 700,
+            }}
+          >
+            <IconShieldAlert size={15} />
+            <span>{t('disclaimer.readFull')}</span>
+          </button>
+        </div>
+      </div>
+
+      {/* 6. Storage & Reset */}
       <div className="card glass">
         <div className="status settings-reset-row" style={{ background: 'none', border: 0, padding: 0 }}>
           <span style={{ fontSize: '13px', color: 'var(--muted)', flex: 1, lineHeight: 1.4 }}>
@@ -231,6 +288,9 @@ export const SettingsPage = () => {
           </button>
         </div>
       </div>
+
+      {/* Standard Units & Disclaimer Footer */}
+      <AppFooter />
     </>
   );
 };

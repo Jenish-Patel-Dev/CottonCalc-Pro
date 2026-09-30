@@ -6,6 +6,7 @@ import OfflineBanner from '../../pwa/OfflineBanner';
 import UpdateBanner from '../../pwa/UpdateBanner';
 import InstallModal from '../../pwa/InstallModal';
 import UpdateModal from '../../pwa/UpdateModal';
+import DisclaimerModal from '../common/DisclaimerModal';
 
 const SIDEBAR_STORAGE_KEY = 'cotton_calc_sidebar_collapsed';
 
@@ -84,6 +85,9 @@ export const AppLayout = ({ currentView, onSelectView, children }) => {
 
       {/* PWA Direct Instant Update Modal */}
       <UpdateModal />
+
+      {/* Global Legal Disclaimer Modal */}
+      <DisclaimerModal />
     </div>
   );
 };

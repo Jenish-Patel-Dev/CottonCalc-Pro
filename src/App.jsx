@@ -9,6 +9,8 @@ import OilMillCalculator from './components/oil/OilMillCalculator';
 import SettingsPage from './components/settings/SettingsPage';
 import SplashScreen from './components/common/SplashScreen';
 
+import { DisclaimerProvider } from './components/common/DisclaimerContext';
+
 function AppContent() {
   // Navigation view: 'home' | 'ginning' | 'oil' | 'settings'
   const [currentView, setCurrentView] = useState('home');
@@ -64,7 +66,9 @@ function App() {
     <ThemeProvider>
       <LanguageProvider>
         <PwaProvider>
-          <AppContent />
+          <DisclaimerProvider>
+            <AppContent />
+          </DisclaimerProvider>
         </PwaProvider>
       </LanguageProvider>
     </ThemeProvider>

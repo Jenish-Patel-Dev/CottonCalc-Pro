@@ -150,6 +150,36 @@
     "importantFieldsTitle": "Important Fields & Metrics",
     "actionsTitle": "Actions & Controls",
     "gotIt": "Got It",
+    "home": {
+      "title": "About CottonCalc Pro",
+      "subtitle": "All-in-One Cotton Ginning & Oil Mill Calculator",
+      "purpose": "CottonCalc Pro provides instant, reliable calculation tools for cotton ginners, commodity traders, and oil millers. Accurately calculate ginning cost parity, reverse procurement rates, cottonseed crushing profitability, and oil cake production costs.",
+      "howToUse": [
+        "Select your desired commercial module: Cotton Ginning or Oil Mill from the home cards.",
+        "Tap any of the interactive quick-launch badges on the cards (e.g. Parity, Reverse, Output, Khal Cost, Profit, Recovery) to jump straight to that specific tab.",
+        "Enter your lot weights and prevailing local market rates to receive instant break-even costs and yields.",
+        "Switch language (English, हिन्दी, ગુજરાતી) or appearance theme anytime from the top bar or settings page."
+      ],
+      "keyFeatures": [
+        "Direct Tab Launchers: Interactive 3D pill badges on each card take you directly to your chosen calculation screen in 1 tap.",
+        "Comprehensive Commercial Suite: Covers seed cotton ginning outturn (GOT), lint parity, reverse buying rate, wash oil recovery, crushing P&L, and Khal cost.",
+        "Standard Indian Cotton Conversions: Built-in standards for 1 Candy (355.62 kg Lint), 1 Maund (20 kg), 1 Quintal (100 kg), and 1 Metric Ton (1000 kg).",
+        "Offline-First Progressive Web App: Install to your phone or desktop home screen and perform calculations anywhere with zero internet required."
+      ],
+      "importantFields": [
+        "Cotton Ginning Module: Calculate GOT %, Candy cost of production (Parity), and maximum raw cotton buying rate.",
+        "Oil Mill Module: Track cottonseed crushing recovery %, net profit/loss per ton, and cost of production of Khal.",
+        "Standard Conversion Standards: 1 Candy = 355.62 kg Lint, 1 Maund = 20 kg Raw Cotton, 1 Ton = 1000 kg Seed.",
+        "Legal Notice & Disclaimer: Commercial decision-support estimates; always verify with weighbridge slips and lab test records."
+      ],
+      "actions": [
+        "Launch Module: Tap any main card to enter that calculator.",
+        "Direct Tab Navigation: Tap any badge on the cards to open that exact tab.",
+        "Language & Theme Toggle: Quickly switch languages and dark/light mode from the top bar.",
+        "Install Application: Add CottonCalc Pro to your device for 1-tap offline use.",
+        "View Legal Disclaimer: Tap the disclaimer link at the bottom of any screen."
+      ]
+    },
     "ginning": {
       "title": "About Cotton Ginning",
       "subtitle": "Ginning Outturn (GOT) & Parity Calculations",
@@ -209,7 +239,7 @@
         "Seed Purchase Rate: Purchase price per 20kg maund, per ton, or per 100kg.",
         "Oil Selling Rate: Market selling price of unrefined wash oil per 10kg, 1kg, or 15kg tin.",
         "Cake (Khal) Selling Rate: Market selling price of oil cake per 50kg bag, 20kg, 100kg, or 1kg.",
-        "Processing Expense: Electricity, maintenance, labor, and steam expense per ton or per 20kg maund.",
+        "Processing Expense: Electricity, maintenance, labor, and steam expense per 20kg maund (default) or per metric ton.",
         "Net Crushing Profit / Loss: Total oil and cake realization minus total procurement and crushing cost per metric ton.",
         "Khal Cost of Production: Net manufacturing cost to produce one unit of oil cake after deducting wash oil revenue."
       ],
@@ -223,13 +253,14 @@
     },
     "settings": {
       "title": "About Settings",
-      "subtitle": "Appearance, Language, PWA Installation & App Info",
-      "purpose": "Customize application appearance, switch languages instantly, install CottonCalc Pro as a standalone PWA app, share with peers, and view reference units and application details.",
+      "subtitle": "Appearance, Language, PWA Installation, Legal & App Info",
+      "purpose": "Customize application appearance, switch languages instantly, install CottonCalc Pro as a standalone PWA app, share with peers, view standard reference units, and read the full commercial legal disclaimer.",
       "howToUse": [
         "In Appearance, tap System, Light, or Dark to change UI theme instantly.",
         "In Language, tap English, हिन्दी, or ગુજરાતી to localize all calculations, labels, and help content.",
         "In Application & Installation, click 'Install Application' to add to your Home Screen / Desktop.",
         "In Share Application, tap 'Share Application' to send via WhatsApp, Telegram, or copy the direct link.",
+        "In Legal & Disclaimer, tap 'Read Full Disclaimer' to review complete commercial terms.",
         "Review the About section for version details and standard commodity conversion factors.",
         "Tap 'Reset Preferences' if you ever wish to restore default theme and language settings."
       ],
@@ -238,6 +269,7 @@
         "Multi-Language Support: Comprehensive localization for English, Hindi, and Gujarati with zero page reload.",
         "Progressive Web App (PWA): Works completely offline with cached calculators and instant desktop/mobile app installation.",
         "Native Sharing: Built-in share sheet integration to share with contacts and trade groups in 1 click.",
+        "Legal & Compliance Notice: Full commercial disclaimer and liability protections.",
         "One-Tap Refresh: Instantly refresh and sync latest application updates.",
         "Preferences Persistence: Your selected language, theme, and units are automatically remembered across sessions."
       ],
@@ -245,6 +277,7 @@
         "Appearance: Visual interface mode (System default, Light glass, Dark glass).",
         "Language: UI language selection (English, Hindi, Gujarati).",
         "App Status: Indicates whether running in Browser Mode or Installed Standalone PWA Mode.",
+        "Legal Notice & Disclaimer: Complete terms of commercial use, estimation guidance, and liability terms.",
         "Share Application: One-tap button to share CottonCalc Pro with business peers.",
         "Standard Units: Official conversion standards (1 Candy = 355.62 kg Lint, 1 Maund = 20 kg, 1 Ton = 1000 kg)."
       ],
@@ -252,6 +285,7 @@
         "Theme Selection: Tap any theme tile to apply immediately.",
         "Language Selection: Tap any language button to switch entire UI.",
         "Install Application: Launch direct native app install prompt.",
+        "View Disclaimer: Open full legal disclaimer and terms of use in 1 click.",
         "Share Application: Share app link via WhatsApp, SMS, or copy link.",
         "Refresh Application: Refresh app to load fresh assets and latest updates.",
         "Reset Preferences: Restore factory appearance and language defaults."
@@ -263,5 +297,25 @@
     "close": "Close",
     "confirm": "Confirm",
     "cancel": "Cancel"
+  },
+  "disclaimer": {
+    "title": "Disclaimer",
+    "subtitle": "Legal Notice & Terms of Use",
+    "badge": "LEGAL NOTICE",
+    "intro": "Cotton Calculator Pro is for estimation and reference only. All results are calculated from the values you enter and standard formulas. They are not guaranteed.",
+    "point1Title": "Actual results vary",
+    "point1Desc": "Outturn, lint, seed, oil and cake yields depend on cotton variety, moisture, trash content, seed quality, machinery condition and processing practices. Real figures at your gin or mill may differ from these estimates.",
+    "point2Title": "Prices and rates are user-supplied",
+    "point2Desc": "The app does not provide live market prices. Verify rates, charges, taxes and duties before you use them in any deal.",
+    "point3Title": "Not financial or trading advice",
+    "point3Desc": "Nothing in this app is a recommendation to buy, sell or hold any commodity. Trading and processing decisions are your own responsibility.",
+    "point4Title": "Check before transacting",
+    "point4Desc": "Confirm important figures independently, with your own records, weighbridge slips, lab reports or advisors, before you commit to contracts, payments or invoices.",
+    "point5Title": "No liability",
+    "point5Desc": "The developer is not responsible for any loss, damage or dispute arising from use of, or reliance on, this app or its results.",
+    "acceptance": "By using this app, you accept these terms.",
+    "readFull": "Read Full Disclaimer",
+    "viewBtn": "View Disclaimer",
+    "closeBtn": "I Understand & Accept"
   }
 }

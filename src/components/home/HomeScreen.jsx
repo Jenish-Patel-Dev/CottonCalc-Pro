@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from '../../i18n/LanguageContext';
 import { IconScale, IconDroplet, IconSettings } from '../common/Icons';
+import AppFooter from '../common/AppFooter';
 
 export const HomeScreen = ({ onSelectView }) => {
   const { t } = useTranslation();
@@ -172,12 +173,8 @@ export const HomeScreen = ({ onSelectView }) => {
         <p>{t('app.marketTipQuote')}</p>
       </div>
 
-      {/* 5. Standard Units Footer */}
-      <div className="foot">
-        Standard Units<br />
-        1 Candy = 355.62 kg Lint | 1 Maund = 20 kg<br />
-        All calculations are estimates. Market conditions vary.
-      </div>
+      {/* 5. Standard Units & Disclaimer Footer */}
+      <AppFooter />
     </>
   );
 };

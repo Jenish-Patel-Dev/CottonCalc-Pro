@@ -3,6 +3,7 @@ import { useTranslation } from '../../i18n/LanguageContext';
 import OutputRatioTab from './OutputRatioTab';
 import ParityTab from './ParityTab';
 import ReverseParityTab from './ReverseParityTab';
+import AppFooter from '../common/AppFooter';
 
 export const GinningCalculator = ({ activeTab = 'parity', onTabChange }) => {
   const { t } = useTranslation();
@@ -155,12 +156,8 @@ export const GinningCalculator = ({ activeTab = 'parity', onTabChange }) => {
         />
       )}
 
-      {/* Standard Units Footer */}
-      <div className="foot">
-        Standard Units<br />
-        1 Candy = 355.62 kg Lint | 1 Maund = 20 kg<br />
-        All calculations are estimates. Market conditions vary.
-      </div>
+      {/* Standard Units & Disclaimer Footer */}
+      <AppFooter />
     </>
   );
 };

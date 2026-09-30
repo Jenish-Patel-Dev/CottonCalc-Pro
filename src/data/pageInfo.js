@@ -4,7 +4,7 @@
  */
 
 export const getPageInfo = (pageId, t) => {
-  if (!pageId || !['ginning', 'oil', 'settings'].includes(pageId)) {
+  if (!pageId || !['home', 'ginning', 'oil', 'settings'].includes(pageId)) {
     return null;
   }
 
