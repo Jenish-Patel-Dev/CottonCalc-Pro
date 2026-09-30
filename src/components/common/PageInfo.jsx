@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from '../../i18n/LanguageContext';
-import { IconInfo, IconX, IconShieldAlert } from './Icons';
+import { IconInfo, IconX } from './Icons';
 import { getPageInfo } from '../../data/pageInfo';
-import { useDisclaimer } from './DisclaimerContext';
 
 /**
  * Reusable Page Information Component
@@ -13,7 +12,6 @@ import { useDisclaimer } from './DisclaimerContext';
  */
 export const PageInfo = ({ pageId }) => {
   const { t } = useTranslation();
-  const { openDisclaimer } = useDisclaimer();
   const [isOpen, setIsOpen] = useState(false);
   const modalRef = useRef(null);
 
@@ -188,49 +186,6 @@ export const PageInfo = ({ pageId }) => {
                     </div>
                   </div>
                 )}
-
-                {/* 6. Legal Notice Link */}
-                <div
-                  style={{
-                    padding: '11px 14px',
-                    borderRadius: '14px',
-                    background: 'var(--surf2)',
-                    border: '1px solid var(--line)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    gap: '10px',
-                    marginTop: '4px',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
-                    <span style={{ color: 'var(--primary)', flexShrink: 0 }}>
-                      <IconShieldAlert size={16} />
-                    </span>
-                    <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--muted)' }} className="truncate">
-                      {t('disclaimer.intro')}
-                    </span>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIsOpen(false);
-                      openDisclaimer();
-                    }}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      color: 'var(--primary)',
-                      fontSize: '12px',
-                      fontWeight: 800,
-                      textDecoration: 'underline',
-                      cursor: 'pointer',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {t('disclaimer.title')}
-                  </button>
-                </div>
               </div>
 
               {/* Footer Button */}

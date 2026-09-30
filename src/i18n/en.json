@@ -317,5 +317,21 @@
     "readFull": "Read Full Disclaimer",
     "viewBtn": "View Disclaimer",
     "closeBtn": "I Understand & Accept"
+  },
+  "termsGate": {
+    "title": "Terms & Disclaimer",
+    "updateTitle": "Updated Terms & Disclaimer",
+    "subtitle": "Please review and accept terms to enter the application",
+    "updateSubtitle": "Terms updated. Please review and accept to continue",
+    "checkboxLabel": "I have read, understood, and agree to the Terms & Conditions and Disclaimer.",
+    "acceptBtn": "Accept & Continue",
+    "acceptedStatus": "ACCEPTED",
+    "acceptedOn": "Accepted on",
+    "viewTerms": "View Terms & Disclaimer",
+    "settingsTitle": "TERMS & CONDITIONS",
+    "settingsBadge": "ACCEPTED",
+    "settingsAccepted": "Accepted & Active",
+    "settingsPending": "Pending Acceptance",
+    "settingsNote": "You accepted the application terms and disclaimer on {date}."
   }
 }

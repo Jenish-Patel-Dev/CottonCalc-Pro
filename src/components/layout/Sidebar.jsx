@@ -6,14 +6,11 @@ import {
   IconScale,
   IconDroplet,
   IconSettings,
-  IconShieldAlert,
 } from '../common/Icons';
-import { useDisclaimer } from '../common/DisclaimerContext';
 
 export const Sidebar = ({ currentView, onSelectView, isCollapsed = false }) => {
   const { t } = useTranslation();
   const { isInstallable, isInstalled, triggerInstall } = usePwa();
-  const { openDisclaimer } = useDisclaimer();
   // The Desktop Navigation Menu background is always deep dark indigo (#1B2673)
   // in both Light Mode and Dark Mode. Therefore, always use the dark mode logo
   // assets in the navigation menu so contrast and readability are always perfect:
@@ -111,24 +108,6 @@ export const Sidebar = ({ currentView, onSelectView, isCollapsed = false }) => {
           <span>{t('settings.installBtn')}</span>
         </button>
       )}
-
-      {/* Global Disclaimer Button */}
-      <button
-        type="button"
-        onClick={openDisclaimer}
-        className="nav nav-item sidebar-disclaimer-btn"
-        title={isCollapsed ? t('disclaimer.title') : undefined}
-        style={{
-          marginTop: '6px',
-          opacity: 0.82,
-          fontSize: '12px',
-        }}
-      >
-        <span className="ni">
-          <IconShieldAlert size={16} />
-        </span>
-        <span>{t('disclaimer.title')}</span>
-      </button>
     </aside>
   );
 };
