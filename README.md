@@ -76,11 +76,13 @@ Determines the net manufacturing cost of producing **1 Candy (355.62 kg)** of li
   - `Seed Ratio %`: Expected cottonseed yield (typically 62% to 65%)
   - `Processing Expense`: Ginning, pressing, and handling charges per unit
 - **Core Formulas**:
-  $$\text{Kapas Required for 1 Candy (kg)} = \frac{355.62}{\text{Outturn \%} / 100}$$
-  $$\text{Gross Kapas Cost} = \left(\frac{\text{Kapas Required}}{20}\right) \times \text{Kapas Rate per Maund}$$
-  $$\text{Seed Generated (kg)} = \text{Kapas Required} \times \left(\frac{\text{Seed Ratio \%}}{100}\right)$$
-  $$\text{Seed Realization Value} = \left(\frac{\text{Seed Generated}}{20}\right) \times \text{Seed Rate per Maund}$$
-  $$\mathbf{Cost\ per\ Candy\ (Net)} = \text{Gross Kapas Cost} - \text{Seed Realization Value} + \text{Total Ginning Expense}$$
+  ```text
+  Kapas Required for 1 Candy (kg) = 355.62 / (Outturn % / 100)
+  Gross Kapas Cost                = (Kapas Required / 20) × Kapas Rate per Maund
+  Seed Generated (kg)             = Kapas Required × (Seed Ratio % / 100)
+  Seed Realization Value          = (Seed Generated / 20) × Seed Rate per Maund
+  Cost per Candy (Net)            = Gross Kapas Cost - Seed Realization Value + Ginning Expense
+  ```
 
 #### B. Reverse Parity (Break-Even Kapas Rate)
 Calculates the **maximum procurement rate** a ginner can pay per 20 kg Maund of raw Kapas to break even at current market lint prices.
@@ -91,7 +93,10 @@ Calculates the **maximum procurement rate** a ginner can pay per 20 kg Maund of 
   - `Cottonseed Rate`: Current market selling price of seed
   - `Ginning Expense`: Processing cost per Maund of Kapas
 - **Core Formula**:
-  $$\mathbf{Max\ Kapas\ Purchase\ Rate} = \left[\left(\frac{\text{Lint Rate per Candy} + \text{Seed Recovery Value per Candy}}{355.62}\right) \times \left(\frac{\text{Outturn \%}}{100}\right) \times 20\right] - \text{Ginning Expense}$$
+  ```text
+  Max Kapas Purchase Rate (₹/Maund) =
+    [((Lint Rate per Candy + Seed Recovery Value per Candy) / 355.62) × (Outturn % / 100) × 20] - Ginning Expense
+  ```
 
 #### C. Output Ratio (G.O.T. Analysis)
 Analyzes laboratory sample tests (e.g., 100g sample) or bulk commercial ginning lots to determine the exact Ginning Outturn (G.O.T.) percentage, seed ratio, and moisture/trash loss.
@@ -101,9 +106,11 @@ Analyzes laboratory sample tests (e.g., 100g sample) or bulk commercial ginning 
   - Real-time total verification with automatic warning alert if component weights do not sum up to 100%.
   - Dynamic conic-gradient visual ring chart displaying component yield distribution.
 - **Core Formulas**:
-  $$\text{Lint Outturn (G.O.T.) \%} = \left(\frac{\text{Lint Weight}}{\text{Total Kapas Weight}}\right) \times 100$$
-  $$\text{Seed Ratio \%} = \left(\frac{\text{Seed Weight}}{\text{Total Kapas Weight}}\right) \times 100$$
-  $$\text{Moisture \& Trash Loss \%} = \left(\frac{\text{Waste Weight}}{\text{Total Kapas Weight}}\right) \times 100$$
+  ```text
+  Lint Outturn (G.O.T.) % = (Lint Weight / Total Kapas Weight) × 100
+  Seed Ratio %            = (Seed Weight / Total Kapas Weight) × 100
+  Moisture & Trash Loss % = (Waste Weight / Total Kapas Weight) × 100
+  ```
 
 ---
 
@@ -119,9 +126,11 @@ Calculates the net cost of manufacturing **Cottonseed Oil Cake (Khal)** per 50 k
   - `Khal Yield %`: Oil cake recovery percentage (typically 82% to 86%)
   - `Crushing Expense`: Milling and processing cost per Ton or per Maund
 - **Core Formulas**:
-  $$\text{Wash Oil Value} = \text{Oil Yield (kg)} \times \text{Oil Rate per kg}$$
-  $$\text{Net Crushing Cost} = \text{Seed Cost} + \text{Processing Expense} - \text{Wash Oil Value}$$
-  $$\mathbf{Cost\ of\ Khal\ per\ Bag\ (50kg)} = \left(\frac{\text{Net Crushing Cost}}{\text{Total Khal Produced (kg)}}\right) \times 50$$
+  ```text
+  Wash Oil Value              = Oil Yield (kg) × Oil Rate per kg
+  Net Crushing Cost           = Seed Cost + Processing Expense - Wash Oil Value
+  Cost of Khal per Bag (50kg) = (Net Crushing Cost / Total Khal Produced in kg) × 50
+  ```
 
 #### B. Crushing Profit & Loss
 Evaluates the commercial viability and net operating profit or loss per Ton (1,000 kg) of cottonseed processed.
@@ -131,14 +140,18 @@ Evaluates the commercial viability and net operating profit or loss per Ton (1,0
   - Total Gross Realization (Wash Oil + Khal + Mill Waste / Sludge)
   - Net Profit or Loss per Ton with color-coded visual indicator (Green for profit, Red for loss)
 - **Core Formulas**:
-  $$\text{Total Realization} = (\text{Oil kg} \times \text{Oil Price/kg}) + (\text{Khal kg} \times \text{Khal Price/kg}) + (\text{Waste kg} \times \text{Waste Price/kg})$$
-  $$\mathbf{Net\ Profit\ /\ Loss} = \text{Total Realization} - (\text{Seed Purchase Cost} + \text{Milling Expense})$$
+  ```text
+  Total Realization = (Oil kg × Oil Price/kg) + (Khal kg × Khal Price/kg) + (Waste kg × Waste Price/kg)
+  Net Profit / Loss = Total Realization - (Seed Purchase Cost + Milling Expense)
+  ```
 
 #### C. Oil Mill Recovery
 Calculates industrial output distribution across **Wash Oil**, **Cottonseed Cake (Khal)**, and **Mill Waste / Moisture Loss** from any input weight of cottonseed.
 
 - **Formula**:
-  $$\text{Recovery \%} = \left(\frac{\text{Product Yield Weight}}{\text{Total Seed Crushed Weight}}\right) \times 100$$
+  ```text
+  Recovery % = (Product Yield Weight / Total Seed Crushed Weight) × 100
+  ```
 
 ---
 
@@ -185,7 +198,7 @@ To ensure regulatory transparency and protect stakeholders:
    - Backdrop clicking and Escape keys are strictly disabled during mandatory consent mode.
 2. **Automatic Re-Prompt on App Version Updates**:
    - `DisclaimerContext` fetches `/version.json` with a cache-busting timestamp on startup.
-   - If the application updates to a newer version (e.g., `1.0.0` $\to$ `1.1.0`), the consent gate activates again so users re-acknowledge terms for the updated release.
+   - If the application updates to a newer version (e.g., `1.0.0` → `1.1.0`), the consent gate activates again so users re-acknowledge terms for the updated release.
 3. **Settings Page Audit Log**:
    - Card 5 in `SettingsPage.jsx` displays a green **"ACCEPTED"** badge with checkmark icon.
    - Shows the exact date and time of user acceptance (e.g., `Accepted on 30/09/2026, 3:52 PM (v1.0.0)`).
