@@ -3,6 +3,7 @@ import { useTranslation } from '../../i18n/LanguageContext';
 import OilRecoveryTab from './OilRecoveryTab';
 import OilProfitTab from './OilProfitTab';
 import KhalParityTab from './KhalParityTab';
+import AppFooter from '../common/AppFooter';
 
 export const OilMillCalculator = ({ activeTab = 'khal_parity', onTabChange }) => {
   const { t } = useTranslation();
@@ -138,12 +139,8 @@ export const OilMillCalculator = ({ activeTab = 'khal_parity', onTabChange }) =>
         />
       )}
 
-      {/* Standard Units Footer */}
-      <div className="foot">
-        Standard Units<br />
-        1 Candy = 355.62 kg Lint | 1 Maund = 20 kg<br />
-        All calculations are estimates. Market conditions vary.
-      </div>
+      {/* Standard Units & Disclaimer Footer */}
+      <AppFooter />
     </>
   );
 };

@@ -131,8 +131,8 @@ export const Header = ({
         </button>
       )}
 
-      {/* Page Information Button for the 3 main pages (placed at the very end on the right) */}
-      {['ginning', 'oil', 'settings'].includes(currentView) && (
+      {/* Page Information Button for all pages (placed at the very end on the right) */}
+      {['home', 'ginning', 'oil', 'settings'].includes(currentView) && (
         <PageInfo pageId={currentView} />
       )}
     </header>
