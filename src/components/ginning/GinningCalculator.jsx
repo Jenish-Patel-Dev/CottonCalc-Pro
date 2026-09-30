@@ -1,14 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../../i18n/LanguageContext';
 import OutputRatioTab from './OutputRatioTab';
 import ParityTab from './ParityTab';
 import ReverseParityTab from './ReverseParityTab';
 
-export const GinningCalculator = () => {
+export const GinningCalculator = ({ activeTab = 'parity', onTabChange }) => {
   const { t } = useTranslation();
 
-  // Tab state: 'ratio', 'parity', 'reverse'
-  const [ginningTab, setGinningTab] = useState('ratio');
+  // Tab state: 'parity', 'reverse', 'ratio'
+  const [ginningTab, setGinningTab] = useState(activeTab);
+
+  useEffect(() => {
+    if (activeTab) {
+      setGinningTab(activeTab);
+    }
+  }, [activeTab]);
+
+  const handleTabChange = (newTab) => {
+    setGinningTab(newTab);
+    if (onTabChange) {
+      onTabChange(newTab);
+    }
+  };
 
   // --- Output Ratio Tab State ---
   const [weightUnit, setWeightUnit] = useState('g');
@@ -49,7 +62,7 @@ export const GinningCalculator = () => {
   const [revGot, setRevGot] = useState(35.0);
   const [revShortage, setRevShortage] = useState(2.0);
 
-  const tabIndex = ginningTab === 'ratio' ? 0 : ginningTab === 'parity' ? 1 : 2;
+  const tabIndex = ginningTab === 'parity' ? 0 : ginningTab === 'reverse' ? 1 : 2;
 
   return (
     <>
@@ -59,18 +72,7 @@ export const GinningCalculator = () => {
         <button
           type="button"
           className={tabIndex === 0 ? 'on active' : ''}
-          onClick={() => setGinningTab('ratio')}
-        >
-          <svg className="i" viewBox="0 0 24 24">
-            <path d="M6 3h9l4 4v14H6z" />
-            <path d="M9 12h7M9 16h7" />
-          </svg>
-          <span>{t('ginning.tabOutput')}</span>
-        </button>
-        <button
-          type="button"
-          className={tabIndex === 1 ? 'on active' : ''}
-          onClick={() => setGinningTab('parity')}
+          onClick={() => handleTabChange('parity')}
         >
           <svg className="i" viewBox="0 0 24 24">
             <path d="M12 2v20M17 6H9.5a3 3 0 000 6h5a3 3 0 010 6H6" />
@@ -79,14 +81,25 @@ export const GinningCalculator = () => {
         </button>
         <button
           type="button"
-          className={tabIndex === 2 ? 'on active' : ''}
-          onClick={() => setGinningTab('reverse')}
+          className={tabIndex === 1 ? 'on active' : ''}
+          onClick={() => handleTabChange('reverse')}
         >
           <svg className="i" viewBox="0 0 24 24">
             <path d="M9 14L4 9l5-5" />
             <path d="M4 9h11a5 5 0 010 10h-3" />
           </svg>
           <span>{t('ginning.tabReverse')}</span>
+        </button>
+        <button
+          type="button"
+          className={tabIndex === 2 ? 'on active' : ''}
+          onClick={() => handleTabChange('ratio')}
+        >
+          <svg className="i" viewBox="0 0 24 24">
+            <path d="M6 3h9l4 4v14H6z" />
+            <path d="M9 12h7M9 16h7" />
+          </svg>
+          <span>{t('ginning.tabOutput')}</span>
         </button>
       </div>
 
