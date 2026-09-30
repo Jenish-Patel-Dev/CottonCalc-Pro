@@ -54,6 +54,9 @@ export const OutputRatioTab = ({
             className={weightUnit === 'g' ? 'on active' : ''}
             onClick={() => onToggleWeightUnit('g')}
           >
+            <svg className="i" viewBox="0 0 24 24">
+              <path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0" />
+            </svg>
             <span>{t('ginning.sampleUnit')}</span>
           </button>
           <button
@@ -61,6 +64,12 @@ export const OutputRatioTab = ({
             className={weightUnit === 'kg' ? 'on active' : ''}
             onClick={() => onToggleWeightUnit('kg')}
           >
+            <svg className="i" viewBox="0 0 24 24">
+              <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+              <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+              <path d="M7 21h10" />
+              <path d="M12 3v18" />
+            </svg>
             <span>{t('ginning.bulkUnit')}</span>
           </button>
         </div>

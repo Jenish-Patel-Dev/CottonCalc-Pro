@@ -673,11 +673,30 @@
     color: var(--primary);
     font-size: 12px;
     font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+  }
+
+  .chips span:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  }
+
+  .chips span:active {
+    transform: translateY(0);
+    filter: brightness(0.95);
   }
 
   .tile.alt .chips span {
     background: var(--goldtint);
     color: var(--gold);
+  }
+
+  .tile.alt .chips span:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
   }
 
   .tile.plain {
@@ -774,6 +793,12 @@
     transition: color 250ms ease;
   }
 
+  .seg button svg.i {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+  }
+
   .seg button.on, .seg button.active {
     color: var(--pi);
   }
@@ -781,6 +806,12 @@
   .seg.mini {
     align-self: center;
     min-width: 250px;
+  }
+
+  .seg.mini button svg.i {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
   }
 
   /* Form Inputs */
@@ -1468,6 +1499,12 @@
     font-size: 13px;
     padding: 11px 4px;
     min-height: 44px;
+    gap: 5px;
+  }
+
+  .seg button svg.i {
+    width: 15px;
+    height: 15px;
   }
 }
 

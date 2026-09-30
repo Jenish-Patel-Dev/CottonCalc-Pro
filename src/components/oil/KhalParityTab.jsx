@@ -105,8 +105,8 @@ export const KhalParityTab = ({
               value={oilExpenseUnit}
               onChange={(val) => setOilExpenseUnit(Number(val))}
               options={[
-                { value: 1000, label: t('oil.perTon'), badge: 'TON' },
                 { value: 20, label: t('oil.per20kg'), badge: '20K' },
+                { value: 1000, label: t('oil.perTon'), badge: 'TON' },
               ]}
             />
           </div>

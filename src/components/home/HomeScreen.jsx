@@ -10,10 +10,10 @@ export const HomeScreen = ({ onSelectView }) => {
       {/* 1. Cotton Ginning Tile */}
       <div
         className="tile glass"
-        onClick={() => onSelectView('ginning')}
+        onClick={() => onSelectView('ginning', 'parity')}
         role="button"
         tabIndex={0}
-        onKeyDown={(e) => e.key === 'Enter' && onSelectView('ginning')}
+        onKeyDown={(e) => e.key === 'Enter' && onSelectView('ginning', 'parity')}
       >
         <div className="th">
           <div className="ti">
@@ -21,7 +21,7 @@ export const HomeScreen = ({ onSelectView }) => {
           </div>
           <div>
             <h3>{t('app.ginningTitle')}</h3>
-            <p>{t('app.ginningSubtitle')}: GOT, Parity & Reverse</p>
+            <p>{t('app.ginningSubtitle')}: Parity, Reverse & Output</p>
           </div>
           <span className="ch">
             <svg className="i" viewBox="0 0 24 24">
@@ -30,9 +30,54 @@ export const HomeScreen = ({ onSelectView }) => {
           </span>
         </div>
         <div className="chips">
-          <span>{t('ginning.tabOutput')}</span>
-          <span>{t('ginning.tabParity')}</span>
-          <span>{t('ginning.tabReverse')}</span>
+          <span
+            role="button"
+            tabIndex={0}
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectView('ginning', 'parity');
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.stopPropagation();
+                onSelectView('ginning', 'parity');
+              }
+            }}
+          >
+            {t('ginning.tabParity')}
+          </span>
+          <span
+            role="button"
+            tabIndex={0}
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectView('ginning', 'reverse');
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.stopPropagation();
+                onSelectView('ginning', 'reverse');
+              }
+            }}
+          >
+            {t('ginning.tabReverse')}
+          </span>
+          <span
+            role="button"
+            tabIndex={0}
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectView('ginning', 'ratio');
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.stopPropagation();
+                onSelectView('ginning', 'ratio');
+              }
+            }}
+          >
+            {t('ginning.tabOutput')}
+          </span>
         </div>
         <div className="tstat">
           1 Candy = <b>355.62 kg Lint</b>
@@ -42,10 +87,10 @@ export const HomeScreen = ({ onSelectView }) => {
       {/* 2. Oil Mill Tile */}
       <div
         className="tile glass alt"
-        onClick={() => onSelectView('oil')}
+        onClick={() => onSelectView('oil', 'khal_parity')}
         role="button"
         tabIndex={0}
-        onKeyDown={(e) => e.key === 'Enter' && onSelectView('oil')}
+        onKeyDown={(e) => e.key === 'Enter' && onSelectView('oil', 'khal_parity')}
       >
         <div className="th">
           <div className="ti">
@@ -53,7 +98,7 @@ export const HomeScreen = ({ onSelectView }) => {
           </div>
           <div>
             <h3>{t('app.oilTitle')}</h3>
-            <p>{t('app.oilSubtitle')}: Recovery, Profit & Khal Cost</p>
+            <p>{t('app.oilSubtitle')}: Khal Cost, Profit & Recovery</p>
           </div>
           <span className="ch">
             <svg className="i" viewBox="0 0 24 24">
@@ -62,9 +107,54 @@ export const HomeScreen = ({ onSelectView }) => {
           </span>
         </div>
         <div className="chips">
-          <span>{t('oil.tabRecovery')}</span>
-          <span>{t('oil.tabProfit')}</span>
-          <span>{t('oil.tabKhalCost')}</span>
+          <span
+            role="button"
+            tabIndex={0}
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectView('oil', 'khal_parity');
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.stopPropagation();
+                onSelectView('oil', 'khal_parity');
+              }
+            }}
+          >
+            {t('oil.tabKhalCost')}
+          </span>
+          <span
+            role="button"
+            tabIndex={0}
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectView('oil', 'parity');
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.stopPropagation();
+                onSelectView('oil', 'parity');
+              }
+            }}
+          >
+            {t('oil.tabProfit')}
+          </span>
+          <span
+            role="button"
+            tabIndex={0}
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectView('oil', 'recovery');
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.stopPropagation();
+                onSelectView('oil', 'recovery');
+              }
+            }}
+          >
+            {t('oil.tabRecovery')}
+          </span>
         </div>
         <div className="tstat">
           1 Ton = <b>1000 kg Seed</b>

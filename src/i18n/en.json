@@ -154,15 +154,15 @@
       "subtitle": "Ginning Outturn (GOT) & Parity Calculations",
       "purpose": "Accurately test Ginning Outturn (GOT) percentage from seed cotton (Kapas) and compute Cost of Production (Parity) as well as Reverse Buying Parity for profitable purchasing decisions.",
       "howToUse": [
-        "Select your calculation tab: Output (GOT test), Parity (Cost per Candy), or Reverse (Max purchase price).",
+        "Select your calculation tab: Parity (Cost per Candy), Reverse (Max purchase price), or Output (GOT test).",
         "Choose measurement unit: Sample (g) for 100g laboratory sample tests or Bulk (kg) for commercial mill lots.",
         "Enter Raw Cotton (Kapas) weight along with Lint and Seed outputs to calculate GOT % and waste automatically.",
         "In Parity / Reverse tabs, enter market rates (Kapas rate, Seed price, Ginning expense) to compute instant break-even costs."
       ],
       "keyFeatures": [
-        "GOT Percentage Breakdown: Dynamic visual donut chart showing exact Lint %, Seed %, and Waste %.",
         "Cost Parity Calculator: Computes net manufacturing cost for 1 Candy (355.62 kg) of lint after deducting seed revenue.",
         "Reverse Buying Parity: Calculates the maximum price you can afford to pay per 20kg maund of Kapas to break even.",
+        "GOT Percentage Breakdown: Dynamic visual donut chart showing exact Lint %, Seed %, and Waste %.",
         "Real-Time Balance Check: Warns immediately if total output does not equal 100%."
       ],
       "importantFields": [
@@ -179,8 +179,8 @@
         "Reverse Buying Parity: Highest purchase rate you can pay per 20kg maund to avoid losses at current market rates."
       ],
       "actions": [
+        "Tab Navigation: Seamlessly switch between Cost Parity, Reverse Parity, and GOT Output calculations.",
         "Sample (g) / Bulk (kg) Toggle: Switch between gram lab testing and commercial kilogram lot processing.",
-        "Tab Navigation: Seamlessly switch between GOT Output, Cost Parity, and Reverse Parity calculations.",
         "Unit Selection: Switch Kapas and Seed rates between 20kg Maund and 100kg Quintal."
       ]
     },
@@ -189,15 +189,15 @@
       "subtitle": "Seed Crushing Recovery, Profit & Khal Cost",
       "purpose": "Track cottonseed crushing recovery (Wash Oil, Oil Cake, and Loss), calculate net crushing profit or loss, and determine the exact production cost of Khal (Oil Cake).",
       "howToUse": [
-        "Select your calculation tab: Recovery (Yield breakdown), Profit (Net P&L), or Khal Cost (Cost per unit).",
+        "Select your calculation tab: Khal Cost (Cost per unit), Profit (Net P&L), or Recovery (Yield breakdown).",
         "Enter Total Seed Processed (kg), Wash Oil Recovery %, and Cake (Khal) %.",
         "Review dynamic Output Breakdown cards for exact yields in kilograms and percentages.",
         "In Profit & Khal Cost tabs, enter market rates (Seed purchase, Oil selling, Cake selling, and Processing expense) to view instant profitability."
       ],
       "keyFeatures": [
-        "Dynamic Recovery Breakdown: Real-time calculation of Wash Oil (kg), Oil Cake (kg), and Waste/Moisture loss.",
-        "Crushing Profit/Loss Analysis: Automatically computes total revenue against total cost with clear profitability status.",
         "Khal Production Cost: Computes exact manufacturing cost of Oil Cake across selectable unit sizes (50kg Bag, 20kg, 100kg, 1kg).",
+        "Crushing Profit/Loss Analysis: Automatically computes total revenue against total cost with clear profitability status.",
+        "Dynamic Recovery Breakdown: Real-time calculation of Wash Oil (kg), Oil Cake (kg), and Waste/Moisture loss.",
         "Visual Status Badges: Instant feedback indicating profitable or loss-making operations."
       ],
       "importantFields": [
@@ -213,7 +213,7 @@
         "Khal Cost of Production: Net manufacturing cost to produce one unit of oil cake after deducting wash oil revenue."
       ],
       "actions": [
-        "Tab Navigation: Switch between Recovery, Profit, and Khal Cost calculators.",
+        "Tab Navigation: Switch between Khal Cost, Profit, and Recovery calculators.",
         "Seed Buy Unit: Switch purchase unit between 20kg, 100kg, and Ton.",
         "Oil Sell Unit: Switch oil selling unit between 10kg, 1kg, and 15kg tin.",
         "Cake Sell Unit: Switch cake selling unit between 50kg Bag, 20kg, 100kg, and 1kg.",
