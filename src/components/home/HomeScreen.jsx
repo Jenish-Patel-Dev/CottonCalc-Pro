@@ -31,49 +31,25 @@ export const HomeScreen = ({ onSelectView }) => {
         </div>
         <div className="chips">
           <span
-            role="button"
-            tabIndex={0}
             onClick={(e) => {
               e.stopPropagation();
               onSelectView('ginning', 'parity');
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.stopPropagation();
-                onSelectView('ginning', 'parity');
-              }
             }}
           >
             {t('ginning.tabParity')}
           </span>
           <span
-            role="button"
-            tabIndex={0}
             onClick={(e) => {
               e.stopPropagation();
               onSelectView('ginning', 'reverse');
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.stopPropagation();
-                onSelectView('ginning', 'reverse');
-              }
             }}
           >
             {t('ginning.tabReverse')}
           </span>
           <span
-            role="button"
-            tabIndex={0}
             onClick={(e) => {
               e.stopPropagation();
               onSelectView('ginning', 'ratio');
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.stopPropagation();
-                onSelectView('ginning', 'ratio');
-              }
             }}
           >
             {t('ginning.tabOutput')}
@@ -108,49 +84,25 @@ export const HomeScreen = ({ onSelectView }) => {
         </div>
         <div className="chips">
           <span
-            role="button"
-            tabIndex={0}
             onClick={(e) => {
               e.stopPropagation();
               onSelectView('oil', 'khal_parity');
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.stopPropagation();
-                onSelectView('oil', 'khal_parity');
-              }
             }}
           >
             {t('oil.tabKhalCost')}
           </span>
           <span
-            role="button"
-            tabIndex={0}
             onClick={(e) => {
               e.stopPropagation();
               onSelectView('oil', 'parity');
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.stopPropagation();
-                onSelectView('oil', 'parity');
-              }
             }}
           >
             {t('oil.tabProfit')}
           </span>
           <span
-            role="button"
-            tabIndex={0}
             onClick={(e) => {
               e.stopPropagation();
               onSelectView('oil', 'recovery');
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                e.stopPropagation();
-                onSelectView('oil', 'recovery');
-              }
             }}
           >
             {t('oil.tabRecovery')}
@@ -184,9 +136,30 @@ export const HomeScreen = ({ onSelectView }) => {
           </span>
         </div>
         <div className="chips">
-          <span>{t('settings.theme')}</span>
-          <span>{t('settings.languageTitle')}</span>
-          <span>{t('settings.installBtnShort') || 'Install'}</span>
+          <span
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectView('settings');
+            }}
+          >
+            {t('settings.theme')}
+          </span>
+          <span
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectView('settings');
+            }}
+          >
+            {t('settings.languageTitle')}
+          </span>
+          <span
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectView('settings');
+            }}
+          >
+            {t('settings.installBtnShort')}
+          </span>
         </div>
         <div className="tstat">
           PWA App &bull; <b>{t('settings.storageTitle')}</b>

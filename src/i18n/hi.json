@@ -110,6 +110,7 @@
     "standaloneRunning": "स्टैंडअलोन ऐप मोड में इंस्टॉल और सक्रिय",
     "browserRunning": "ब्राउज़र मोड में सक्रिय",
     "installBtn": "ऐप इंस्टॉल करें",
+    "installBtnShort": "इंस्टॉल",
     "shareTitle": "एप्लिकेशन शेयर करें",
     "shareBtn": "एप्लिकेशन शेयर करें",
     "shareApp": "एप्लिकेशन शेयर करें",

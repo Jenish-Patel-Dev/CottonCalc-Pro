@@ -110,6 +110,7 @@
     "standaloneRunning": "Installed & Running in Standalone App Mode",
     "browserRunning": "Running in Browser Mode",
     "installBtn": "Install Application",
+    "installBtnShort": "Install",
     "shareTitle": "Share Application",
     "shareBtn": "Share Application",
     "shareApp": "Share Application",
