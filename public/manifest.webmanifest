@@ -3,7 +3,7 @@
   "name": "Cotton Calculator Pro",
   "short_name": "Cotton Calculator Pro",
   "description": "Cotton Ginning & Oil Mill Calculator",
-  "start_url": "/",
+  "start_url": "/?mode=pwa",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
