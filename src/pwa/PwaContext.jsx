@@ -87,6 +87,10 @@ export const PwaProvider = ({ children }) => {
 
     // Capture appinstalled event
     const handleAppInstalled = () => {
+      try {
+        localStorage.removeItem('cotton_calc_pwa_accepted_v5');
+        localStorage.removeItem('cotton_calc_pwa_date_v5');
+      } catch (e) {}
       setIsInstalled(true);
       setIsInstallable(false);
       setDeferredPrompt(null);
@@ -172,6 +176,11 @@ export const PwaProvider = ({ children }) => {
   }, []);
 
   const triggerInstall = async () => {
+    try {
+      localStorage.removeItem('cotton_calc_pwa_accepted_v5');
+      localStorage.removeItem('cotton_calc_pwa_date_v5');
+    } catch (e) {}
+
     if (deferredPrompt) {
       deferredPrompt.prompt();
       const choice = await deferredPrompt.userChoice;
