@@ -2,28 +2,38 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const DisclaimerContext = createContext();
 
-// Clean, independent storage keys
-const PWA_INSTALLED_TERMS_KEY = 'cotton_calc_pwa_standalone_accepted_v1';
-const WEB_TERMS_SESSION_KEY = 'cotton_calc_web_terms_session_v1';
-const TERMS_DATE_KEY = 'cotton_calc_terms_accepted_date';
+// Storage keys - isolated per environment
+const PWA_TERMS_ACCEPTED_KEY = 'cotton_calc_pwa_accepted_v4';
+const WEB_TERMS_SESSION_KEY = 'cotton_calc_web_accepted_v4';
+const TERMS_DATE_KEY = 'cotton_calc_terms_accepted_date_v4';
 const DEFAULT_VERSION = '1.0.0';
 
 /**
- * Detects whether the app is currently running as an installed PWA / Standalone app
+ * Detects whether the application is running in an installed PWA (Standalone) container
+ * or as a website in a regular browser tab.
+ * 
+ * Strict detection: Only returns true for actual standalone PWA mode.
+ * Never checks minimal-ui or fullscreen so regular mobile browsers are NEVER confused with PWA.
  */
 export const isStandaloneApp = () => {
   try {
-    const isDisplayStandalone =
-      window.matchMedia('(display-mode: standalone)').matches ||
-      window.matchMedia('(display-mode: fullscreen)').matches ||
-      window.matchMedia('(display-mode: minimal-ui)').matches;
-    const isIosStandalone = window.navigator.standalone === true;
-    const isAndroidApp = document.referrer.includes('android-app://');
-    const isUrlPwa =
-      window.location.search.includes('mode=pwa') ||
-      window.location.search.includes('source=pwa');
-
-    return Boolean(isDisplayStandalone || isIosStandalone || isAndroidApp || isUrlPwa);
+    // 1. Explicit start_url query param set in manifest.webmanifest
+    if (window.location.search && (window.location.search.includes('mode=pwa') || window.location.search.includes('source=pwa'))) {
+      return true;
+    }
+    // 2. iOS Safari Add-to-Home-Screen standalone mode
+    if (window.navigator.standalone === true) {
+      return true;
+    }
+    // 3. Android WebAPK launch referrer
+    if (document.referrer && document.referrer.includes('android-app://')) {
+      return true;
+    }
+    // 4. Standard W3C standalone display mode (Desktop Chrome / Android WebAPK)
+    if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) {
+      return true;
+    }
+    return false;
   } catch {
     return false;
   }
@@ -44,6 +54,13 @@ export const DisclaimerProvider = ({ children }) => {
   });
 
   useEffect(() => {
+    // Clean up any legacy test keys so they never interfere
+    try {
+      localStorage.removeItem('cotton_calc_app_installed_terms_accepted');
+      localStorage.removeItem('cotton_calc_terms_accepted_app_version');
+      localStorage.removeItem('cotton_calc_pwa_standalone_accepted_v1');
+    } catch {}
+
     const checkTermsStatus = () => {
       const isApp = isStandaloneApp();
 
@@ -64,18 +81,18 @@ export const DisclaimerProvider = ({ children }) => {
       if (isApp) {
         // ===================================================================
         // 1. INSTALLED APPLICATION (PWA / Standalone App)
-        // Independent from website! Even if user accepted on website,
+        // Independent from website! Even if accepted on website,
         // the installed app MUST ask once when opened for the first time.
         // Once accepted inside the app, closing & reopening NEVER asks again.
         // If deleted and reinstalled, storage is reset by OS -> asks on first open.
         // ===================================================================
         try {
-          const appAccepted = localStorage.getItem(PWA_INSTALLED_TERMS_KEY);
+          const appAccepted = localStorage.getItem(PWA_TERMS_ACCEPTED_KEY);
           if (appAccepted === 'true') {
             setIsGateOpen(false);
             setHasAccepted(true);
           } else {
-            // First time launching the installed app
+            // First time opening the installed PWA
             setIsGateOpen(true);
             setHasAccepted(false);
           }
@@ -94,7 +111,7 @@ export const DisclaimerProvider = ({ children }) => {
             setIsGateOpen(false);
             setHasAccepted(true);
           } else {
-            // Fresh open in browser
+            // Fresh website open / new session
             setIsGateOpen(true);
             setHasAccepted(false);
           }
@@ -121,12 +138,14 @@ export const DisclaimerProvider = ({ children }) => {
 
     try {
       if (isApp) {
-        // Only set the PWA key when user accepts INSIDE the installed app!
-        localStorage.setItem(PWA_INSTALLED_TERMS_KEY, 'true');
+        // User accepted INSIDE the installed app:
+        // Permanently record in localStorage for PWA
+        localStorage.setItem(PWA_TERMS_ACCEPTED_KEY, 'true');
         localStorage.setItem(TERMS_DATE_KEY, formattedDateTime);
       } else {
-        // On website: only set sessionStorage for current website visit!
-        // NEVER set PWA_INSTALLED_TERMS_KEY here, so installed app will always ask on its first open.
+        // User accepted on the WEBSITE:
+        // ONLY set sessionStorage for this browser tab session!
+        // NEVER touch PWA_TERMS_ACCEPTED_KEY so installed app will always ask on its first open.
         sessionStorage.setItem(WEB_TERMS_SESSION_KEY, 'true');
         localStorage.setItem(TERMS_DATE_KEY, formattedDateTime);
       }
