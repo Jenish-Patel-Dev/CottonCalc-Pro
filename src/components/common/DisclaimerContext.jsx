@@ -2,25 +2,28 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const DisclaimerContext = createContext();
 
-// Storage keys
-const APP_TERMS_ACCEPTED_KEY = 'cotton_calc_app_installed_terms_accepted';
-const WEB_TERMS_ACCEPTED_KEY = 'cotton_calc_web_terms_accepted_session';
+// Clean, independent storage keys
+const PWA_INSTALLED_TERMS_KEY = 'cotton_calc_pwa_standalone_accepted_v1';
+const WEB_TERMS_SESSION_KEY = 'cotton_calc_web_terms_session_v1';
 const TERMS_DATE_KEY = 'cotton_calc_terms_accepted_date';
 const DEFAULT_VERSION = '1.0.0';
 
 /**
- * Detects whether the app is running as an installed PWA / Standalone application
- * or as a normal website in a browser tab.
+ * Detects whether the app is currently running as an installed PWA / Standalone app
  */
 export const isStandaloneApp = () => {
   try {
-    return (
+    const isDisplayStandalone =
       window.matchMedia('(display-mode: standalone)').matches ||
       window.matchMedia('(display-mode: fullscreen)').matches ||
-      window.matchMedia('(display-mode: minimal-ui)').matches ||
-      window.navigator.standalone === true ||
-      document.referrer.includes('android-app://')
-    );
+      window.matchMedia('(display-mode: minimal-ui)').matches;
+    const isIosStandalone = window.navigator.standalone === true;
+    const isAndroidApp = document.referrer.includes('android-app://');
+    const isUrlPwa =
+      window.location.search.includes('mode=pwa') ||
+      window.location.search.includes('source=pwa');
+
+    return Boolean(isDisplayStandalone || isIosStandalone || isAndroidApp || isUrlPwa);
   } catch {
     return false;
   }
@@ -41,30 +44,16 @@ export const DisclaimerProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    const checkTermsStatus = async () => {
+    const checkTermsStatus = () => {
       const isApp = isStandaloneApp();
 
-      // Read or load current version for settings display
+      // Read stored app version for display in Settings
       try {
-        const savedVer = localStorage.getItem('cotton_calc_version');
-        if (savedVer) {
-          setAppVersion(savedVer);
-        }
-        const res = await fetch(`/version.json?_t=${Date.now()}`, {
-          cache: 'no-store',
-          headers: { 'Cache-Control': 'no-cache, no-store' },
-        });
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.version) {
-            setAppVersion(String(data.version));
-          }
-        }
-      } catch {
-        // Ignore offline / network errors
-      }
+        const localVer = localStorage.getItem('cotton_calc_version');
+        if (localVer) setAppVersion(localVer);
+      } catch {}
 
-      // Read stored acceptance timestamp if present
+      // Read stored acceptance timestamp if any
       try {
         const storedDate = localStorage.getItem(TERMS_DATE_KEY);
         if (storedDate) {
@@ -75,25 +64,18 @@ export const DisclaimerProvider = ({ children }) => {
       if (isApp) {
         // ===================================================================
         // 1. INSTALLED APPLICATION (PWA / Standalone App)
-        // Rule: Show popup ONLY on the first time open after installation!
-        // Closing and reopening the app will NEVER show the popup again.
-        // If the user deletes/uninstalls the app and reinstalls,
-        // the OS/browser clears local storage, so it will show on first launch again.
+        // Independent from website! Even if user accepted on website,
+        // the installed app MUST ask once when opened for the first time.
+        // Once accepted inside the app, closing & reopening NEVER asks again.
+        // If deleted and reinstalled, storage is reset by OS -> asks on first open.
         // ===================================================================
         try {
-          let appAccepted = localStorage.getItem(APP_TERMS_ACCEPTED_KEY);
-
-          // Backward compatibility migration if already accepted previously
-          if (!appAccepted && localStorage.getItem('cotton_calc_terms_accepted_app_version')) {
-            localStorage.setItem(APP_TERMS_ACCEPTED_KEY, 'true');
-            appAccepted = 'true';
-          }
-
+          const appAccepted = localStorage.getItem(PWA_INSTALLED_TERMS_KEY);
           if (appAccepted === 'true') {
             setIsGateOpen(false);
             setHasAccepted(true);
           } else {
-            // First time launch after installing the app on this device
+            // First time launching the installed app
             setIsGateOpen(true);
             setHasAccepted(false);
           }
@@ -102,17 +84,17 @@ export const DisclaimerProvider = ({ children }) => {
         }
       } else {
         // ===================================================================
-        // 2. WEBSITE (Regular Browser Tab Mode)
-        // Rule: Every time user opens the website in the browser, popup appears.
-        // Tracked via sessionStorage for the active session/tab.
+        // 2. WEBSITE (Browser Tab Mode)
+        // Every time user opens the website in browser, popup must appear!
+        // Scoped strictly to sessionStorage for the active session.
         // ===================================================================
         try {
-          const webAccepted = sessionStorage.getItem(WEB_TERMS_ACCEPTED_KEY);
+          const webAccepted = sessionStorage.getItem(WEB_TERMS_SESSION_KEY);
           if (webAccepted === 'true') {
             setIsGateOpen(false);
             setHasAccepted(true);
           } else {
-            // Every fresh website visit / opened tab
+            // Fresh open in browser
             setIsGateOpen(true);
             setHasAccepted(false);
           }
@@ -139,12 +121,13 @@ export const DisclaimerProvider = ({ children }) => {
 
     try {
       if (isApp) {
-        // Installed App: Permanently saved in localStorage
-        localStorage.setItem(APP_TERMS_ACCEPTED_KEY, 'true');
+        // Only set the PWA key when user accepts INSIDE the installed app!
+        localStorage.setItem(PWA_INSTALLED_TERMS_KEY, 'true');
         localStorage.setItem(TERMS_DATE_KEY, formattedDateTime);
       } else {
-        // Website: Saved in sessionStorage for the active browser session
-        sessionStorage.setItem(WEB_TERMS_ACCEPTED_KEY, 'true');
+        // On website: only set sessionStorage for current website visit!
+        // NEVER set PWA_INSTALLED_TERMS_KEY here, so installed app will always ask on its first open.
+        sessionStorage.setItem(WEB_TERMS_SESSION_KEY, 'true');
         localStorage.setItem(TERMS_DATE_KEY, formattedDateTime);
       }
     } catch (e) {
