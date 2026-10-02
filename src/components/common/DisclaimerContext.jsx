@@ -2,9 +2,29 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const DisclaimerContext = createContext();
 
-const TERMS_VERSION_KEY = 'cotton_calc_terms_accepted_app_version';
+// Storage keys
+const APP_TERMS_ACCEPTED_KEY = 'cotton_calc_app_installed_terms_accepted';
+const WEB_TERMS_ACCEPTED_KEY = 'cotton_calc_web_terms_accepted_session';
 const TERMS_DATE_KEY = 'cotton_calc_terms_accepted_date';
 const DEFAULT_VERSION = '1.0.0';
+
+/**
+ * Detects whether the app is running as an installed PWA / Standalone application
+ * or as a normal website in a browser tab.
+ */
+export const isStandaloneApp = () => {
+  try {
+    return (
+      window.matchMedia('(display-mode: standalone)').matches ||
+      window.matchMedia('(display-mode: fullscreen)').matches ||
+      window.matchMedia('(display-mode: minimal-ui)').matches ||
+      window.navigator.standalone === true ||
+      document.referrer.includes('android-app://')
+    );
+  } catch {
+    return false;
+  }
+};
 
 export const DisclaimerProvider = ({ children }) => {
   const [appVersion, setAppVersion] = useState(DEFAULT_VERSION);
@@ -21,11 +41,15 @@ export const DisclaimerProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    const initializeTermsStatus = async () => {
-      let currentVer = DEFAULT_VERSION;
+    const checkTermsStatus = async () => {
+      const isApp = isStandaloneApp();
 
-      // 1. Fetch current version from version.json
+      // Read or load current version for settings display
       try {
+        const savedVer = localStorage.getItem('cotton_calc_version');
+        if (savedVer) {
+          setAppVersion(savedVer);
+        }
         const res = await fetch(`/version.json?_t=${Date.now()}`, {
           cache: 'no-store',
           headers: { 'Cache-Control': 'no-cache, no-store' },
@@ -33,68 +57,72 @@ export const DisclaimerProvider = ({ children }) => {
         if (res.ok) {
           const data = await res.json();
           if (data && data.version) {
-            currentVer = String(data.version);
-            setAppVersion(currentVer);
+            setAppVersion(String(data.version));
           }
         }
-      } catch (err) {
-        // Fallback to local stored app version if available
-        try {
-          const localVer = localStorage.getItem('cotton_calc_version');
-          if (localVer) {
-            currentVer = localVer;
-            setAppVersion(localVer);
-          }
-        } catch {
-          // Ignore
-        }
+      } catch {
+        // Ignore offline / network errors
       }
 
-      // 2. Check if user has accepted terms for this current version
+      // Read stored acceptance timestamp if present
       try {
-        let storedDate = localStorage.getItem(TERMS_DATE_KEY);
-
-        // If storedDate exists but doesn't have time (e.g. from previous date-only format), upgrade it with time
-        if (storedDate && !storedDate.includes(':')) {
-          try {
-            const upgraded = `${storedDate}, ${new Date().toLocaleTimeString([], {
-              hour: 'numeric',
-              minute: '2-digit',
-              hour12: true,
-            })}`;
-            storedDate = upgraded;
-            localStorage.setItem(TERMS_DATE_KEY, upgraded);
-          } catch {
-            // Ignore
-          }
-        }
-
+        const storedDate = localStorage.getItem(TERMS_DATE_KEY);
         if (storedDate) {
           setAcceptedDate(storedDate);
         }
+      } catch {}
 
-        if (!acceptedVer) {
-          // First-time user: never accepted
+      if (isApp) {
+        // ===================================================================
+        // 1. INSTALLED APPLICATION (PWA / Standalone App)
+        // Rule: Show popup ONLY on the first time open after installation!
+        // Closing and reopening the app will NEVER show the popup again.
+        // If the user deletes/uninstalls the app and reinstalls,
+        // the OS/browser clears local storage, so it will show on first launch again.
+        // ===================================================================
+        try {
+          let appAccepted = localStorage.getItem(APP_TERMS_ACCEPTED_KEY);
+
+          // Backward compatibility migration if already accepted previously
+          if (!appAccepted && localStorage.getItem('cotton_calc_terms_accepted_app_version')) {
+            localStorage.setItem(APP_TERMS_ACCEPTED_KEY, 'true');
+            appAccepted = 'true';
+          }
+
+          if (appAccepted === 'true') {
+            setIsGateOpen(false);
+            setHasAccepted(true);
+          } else {
+            // First time launch after installing the app on this device
+            setIsGateOpen(true);
+            setHasAccepted(false);
+          }
+        } catch {
           setIsGateOpen(true);
-          setIsUpdatedTerms(false);
-          setHasAccepted(false);
-        } else if (acceptedVer !== currentVer) {
-          // Returning user, but app has been updated to a new version!
-          setIsGateOpen(true);
-          setIsUpdatedTerms(true);
-          setHasAccepted(false);
-        } else {
-          // Already accepted current version
-          setIsGateOpen(false);
-          setIsUpdatedTerms(false);
-          setHasAccepted(true);
         }
-      } catch {
-        setIsGateOpen(true);
+      } else {
+        // ===================================================================
+        // 2. WEBSITE (Regular Browser Tab Mode)
+        // Rule: Every time user opens the website in the browser, popup appears.
+        // Tracked via sessionStorage for the active session/tab.
+        // ===================================================================
+        try {
+          const webAccepted = sessionStorage.getItem(WEB_TERMS_ACCEPTED_KEY);
+          if (webAccepted === 'true') {
+            setIsGateOpen(false);
+            setHasAccepted(true);
+          } else {
+            // Every fresh website visit / opened tab
+            setIsGateOpen(true);
+            setHasAccepted(false);
+          }
+        } catch {
+          setIsGateOpen(true);
+        }
       }
     };
 
-    initializeTermsStatus();
+    checkTermsStatus();
   }, []);
 
   const acceptTerms = () => {
@@ -106,12 +134,23 @@ export const DisclaimerProvider = ({ children }) => {
       minute: '2-digit',
       hour12: true,
     });
+
+    const isApp = isStandaloneApp();
+
     try {
-      localStorage.setItem(TERMS_VERSION_KEY, appVersion);
-      localStorage.setItem(TERMS_DATE_KEY, formattedDateTime);
+      if (isApp) {
+        // Installed App: Permanently saved in localStorage
+        localStorage.setItem(APP_TERMS_ACCEPTED_KEY, 'true');
+        localStorage.setItem(TERMS_DATE_KEY, formattedDateTime);
+      } else {
+        // Website: Saved in sessionStorage for the active browser session
+        sessionStorage.setItem(WEB_TERMS_ACCEPTED_KEY, 'true');
+        localStorage.setItem(TERMS_DATE_KEY, formattedDateTime);
+      }
     } catch (e) {
       console.warn('Could not save terms acceptance', e);
     }
+
     setAcceptedDate(formattedDateTime);
     setHasAccepted(true);
     setIsGateOpen(false);

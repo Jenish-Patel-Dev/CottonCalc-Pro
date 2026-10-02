@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cottoncalc-v-1790764933753';
+const CACHE_NAME = 'cottoncalc-v-1790937725686';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
