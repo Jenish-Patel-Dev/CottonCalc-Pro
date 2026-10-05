@@ -54,13 +54,13 @@ jobs:
       - name: 📤 Upload Installable Test APK (.apk)
         uses: actions/upload-artifact@v4
         with:
-          name: CottonCalc-Pro-Test-APK
+          name: Cotton-Calculator-Pro-Test-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 14
 
       - name: 📤 Upload Play Store App Bundle (.aab)
         uses: actions/upload-artifact@v4
         with:
-          name: CottonCalc-Pro-PlayStore-AAB
+          name: Cotton-Calculator-Pro-PlayStore-AAB
           path: android/app/build/outputs/bundle/release/*.aab
           retention-days: 14

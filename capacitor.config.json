@@ -1,6 +1,6 @@
 {
   "appId": "com.tavishinfotech.cottoncalc",
-  "appName": "CottonCalc Pro",
+  "appName": "Cotton Calculator Pro",
   "webDir": "dist",
   "server": {
     "androidScheme": "https"
