@@ -5,6 +5,7 @@ import { usePwa } from '../../pwa/PwaContext';
 import { IconSidebarToggle, IconSun, IconMoon, IconScale, IconDownload, IconRefresh } from '../common/Icons';
 import GlassSelect from '../common/GlassSelect';
 import PageInfo from '../common/PageInfo';
+import { isStandaloneApp } from '../common/DisclaimerContext';
 
 export const Header = ({
   currentView,
@@ -15,6 +16,7 @@ export const Header = ({
   const { t, language, setLanguage } = useTranslation();
   const { activeTheme, setTheme } = useTheme();
   const { isInstalled, triggerInstall, refreshApp, isUpdating } = usePwa();
+  const isApp = isStandaloneApp();
 
   const isDark = activeTheme === 'dark';
 
@@ -105,8 +107,22 @@ export const Header = ({
         {isDark ? <IconMoon size={16} /> : <IconSun size={16} />}
       </button>
 
-      {/* If app is installed, show Refresh Button to reload latest updates; otherwise show Install Button */}
-      {isInstalled ? (
+      {/* If running inside installed app/PWA, do not show install button; only show refresh if updating */}
+      {isApp ? (
+        isUpdating && (
+          <button
+            type="button"
+            className="ib header-icon-btn"
+            id="header-refresh-btn"
+            onClick={refreshApp}
+            disabled={isUpdating}
+            aria-label={t('nav.refresh') || 'Refresh Application'}
+            title={t('nav.refresh') || 'Refresh Application'}
+          >
+            <IconRefresh size={16} className="animate-spin" />
+          </button>
+        )
+      ) : isInstalled ? (
         <button
           type="button"
           className="ib header-icon-btn"

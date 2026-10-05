@@ -18,6 +18,10 @@ const DEFAULT_VERSION = '1.0.0';
  */
 export const isStandaloneApp = () => {
   try {
+    // 0. Native Capacitor Android / iOS App container
+    if (typeof window !== 'undefined' && window.Capacitor && typeof window.Capacitor.isNativePlatform === 'function' && window.Capacitor.isNativePlatform()) {
+      return true;
+    }
     // 1. Explicit start_url query param set in manifest.webmanifest
     if (window.location.search && (window.location.search.includes('mode=pwa') || window.location.search.includes('source=pwa'))) {
       return true;

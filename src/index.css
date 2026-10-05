@@ -1209,10 +1209,39 @@
     position: sticky !important;
     top: 0 !important;
     z-index: 30 !important;
-    min-height: 0 !important;
-    padding: calc(10px + env(safe-area-inset-top, 0px)) 14px 10px !important;
+    height: auto !important;
+    min-height: calc(56px + env(safe-area-inset-top, 0px)) !important;
+    max-height: none !important;
+    padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px !important;
     gap: 8px !important;
     width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .top .tx {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .top h1 {
+    font-size: 15.5px !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .top p {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    margin-top: 1px !important;
+  }
+
+  .mobile-brand-logo-img {
+    max-height: 32px !important;
+    max-width: 140px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
   }
 
   .top .btn {
@@ -1220,16 +1249,37 @@
   }
 
   select.lang {
-    height: 40px;
-    max-width: 108px;
+    height: 36px;
+    max-width: 105px;
     padding: 0 6px;
     font-size: 12px;
   }
 
   .ib {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .top .header-icon-btn,
+  .top .page-info-trigger {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .top .header-lang-select {
+    flex-shrink: 0 !important;
+  }
+
+  .top .header-lang-btn {
+    min-height: 36px !important;
+    height: 36px !important;
+    padding: 0 8px !important;
   }
 
   .sidebar-toggle-btn {
