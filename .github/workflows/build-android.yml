@@ -51,16 +51,23 @@ jobs:
           cd android
           ./gradlew bundleRelease --no-daemon
 
+      - name: 🏷️ Rename Output Files to Application Name
+        run: |
+          mkdir -p build-artifacts/apk
+          mkdir -p build-artifacts/aab
+          cp android/app/build/outputs/apk/debug/app-debug.apk "build-artifacts/apk/Cotton Calculator Pro.apk"
+          cp android/app/build/outputs/bundle/release/*.aab "build-artifacts/aab/Cotton Calculator Pro.aab"
+
       - name: 📤 Upload Installable Test APK (.apk)
         uses: actions/upload-artifact@v4
         with:
           name: Cotton-Calculator-Pro-Test-APK
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: build-artifacts/apk/Cotton Calculator Pro.apk
           retention-days: 14
 
       - name: 📤 Upload Play Store App Bundle (.aab)
         uses: actions/upload-artifact@v4
         with:
           name: Cotton-Calculator-Pro-PlayStore-AAB
-          path: android/app/build/outputs/bundle/release/*.aab
+          path: build-artifacts/aab/Cotton Calculator Pro.aab
           retention-days: 14
