@@ -32,14 +32,14 @@ console.assert(out2.showWarning === true, 'Warning should be true when sum != 10
 
 // 2. Ginning Cost Parity Test
 // Kapas: 1500 per 20kg, Seed: 700 per 20kg, Exp: 150 per maund, GOT: 35%, Shortage: 2%
-// Lint per candy: 356
-// requiredKapas = 356 / 0.35 = 1017.142857 kg
+// Lint per candy: 355.62
+// requiredKapas = 355.62 / 0.35 = 1016.057143 kg
 // seed% = (100 - 35 - 2)/100 = 63% = 0.63
-// genSeed = 1017.142857 * 0.63 = 640.8 kg
-// costOfKapas = (1017.142857 / 20) * 1500 = 76285.714
-// processingCost = (1017.142857 / 20) * 150 = 7628.5714
-// recoveryFromSeed = (640.8 / 20) * 700 = 22428
-// netCost = 76285.714 + 7628.5714 - 22428 = 61486.2857 -> toFixed(0) = '61486'
+// genSeed = 1016.057143 * 0.63 = 640.116 kg
+// costOfKapas = (1016.057143 / 20) * 1500 = 76204.2857
+// processingCost = (1016.057143 / 20) * 150 = 7620.42857
+// recoveryFromSeed = (640.116 / 20) * 700 = 22404.06
+// netCost = 76204.2857 + 7620.42857 - 22404.06 = 61420.65 -> toFixed(0) = '61421'
 const parityResult = calculateGinningParity({
   kapasRate: '1500',
   kapasUnit: 20,
@@ -51,16 +51,16 @@ const parityResult = calculateGinningParity({
 });
 console.log('Ginning Cost Parity Result:', parityResult);
 console.assert(parityResult.hasValidData === true, 'Data should be valid');
-console.assert(parityResult.parityCost === '61486', `Expected 61486, got ${parityResult.parityCost}`);
+console.assert(parityResult.parityCost === '61421', `Expected 61421, got ${parityResult.parityCost}`);
 
 // 3. Reverse Parity Test
 // Lint: 60000 / candy, Seed: 700 / 20kg, Expense: 150 / 20kg, GOT: 35%, Shortage: 2%
 // lintYieldKg = 20 * 0.35 = 7 kg
 // seedYieldKg = 20 * 0.63 = 12.6 kg
-// lintValue = (7 / 356) * 60000 = 1179.775
+// lintValue = (7 / 355.62) * 60000 = 1181.036
 // seedValue = (12.6 / 20) * 700 = 441
-// totalRealization = 1179.775 + 441 = 1620.775
-// maxKapas = 1620.775 - 150 = 1470.775 -> toFixed(0) = '1471'
+// totalRealization = 1181.036 + 441 = 1622.036
+// maxKapas = 1622.036 - 150 = 1472.036 -> toFixed(0) = '1472'
 const revResult = calculateReverseParity({
   revLintPrice: '60000',
   revSeedPrice: '700',
@@ -71,7 +71,7 @@ const revResult = calculateReverseParity({
 });
 console.log('Reverse Parity Result:', revResult);
 console.assert(revResult.hasValidData === true, 'Reverse data should be valid');
-console.assert(revResult.revKapasRate === '1471', `Expected 1471, got ${revResult.revKapasRate}`);
+console.assert(revResult.revKapasRate === '1472', `Expected 1472, got ${revResult.revKapasRate}`);
 
 // 4. Oil Recovery Test
 const oilRec = calculateOilRecovery({
