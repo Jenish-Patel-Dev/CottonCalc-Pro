@@ -124,6 +124,11 @@
     "versionNumber": "1.0.0 (PWA)",
     "purpose": "उद्देश्य",
     "purposeText": "कपास जिनर्स, कमोडिटी व्यापारियों और तेल मिल संचालकों के लिए त्वरित और सटीक पैरिटी व रिकवरी गणना हेतु निर्मित।",
+    "devTitle": "डेवलपर एवं संपर्क",
+    "developedBy": "डेवलपर",
+    "developers": "Naresh Khambhaliya & Jenish Khambhaliya",
+    "contactEmail": "संपर्क ईमेल",
+    "emailAddress": "jgpatel8080@gmail.com",
     "storageTitle": "डेटा और प्राथमिकताएं",
     "resetBtn": "प्राथमिकताएं रीसेट करें",
     "resetSuccess": "प्राथमिकताएं डिफ़ॉल्ट पर रीसेट कर दी गई हैं।"

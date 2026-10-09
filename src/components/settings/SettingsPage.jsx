@@ -10,6 +10,8 @@ import {
   IconCheck,
   IconShare,
   IconShieldAlert,
+  IconUser,
+  IconMail,
 } from '../common/Icons';
 import { useDisclaimer } from '../common/DisclaimerContext';
 import AppFooter from '../common/AppFooter';
@@ -213,7 +215,7 @@ export const SettingsPage = () => {
         </div>
       </div>
 
-      {/* 5. Legal & Terms / Disclaimer Card */}
+      {/* 6. Legal & Terms / Disclaimer Card */}
       <div className="card glass">
         <div className="lbl flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -303,6 +305,76 @@ export const SettingsPage = () => {
           >
             {t('settings.resetBtn')}
           </button>
+        </div>
+      </div>
+
+      {/* Minimalist App Signature (Option 2) */}
+      <div
+        className="settings-signature"
+        style={{
+          textAlign: 'center',
+          padding: '24px 16px 8px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '6px',
+        }}
+      >
+        <div
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '10px',
+            fontSize: '11.5px',
+            fontWeight: 800,
+            color: 'var(--muted)',
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+          }}
+        >
+          <span style={{ width: '24px', height: '1px', background: 'var(--line)' }} />
+          <span>{t('settings.developedBy') || 'Designed & Developed by'}</span>
+          <span style={{ width: '24px', height: '1px', background: 'var(--line)' }} />
+        </div>
+
+        <div
+          style={{
+            fontSize: '15px',
+            fontWeight: 800,
+            color: 'var(--text)',
+            letterSpacing: '-0.01em',
+          }}
+        >
+          Naresh Khambhaliya &amp; Jenish Khambhaliya
+        </div>
+
+        <div
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            fontSize: '12.5px',
+            fontWeight: 600,
+            color: 'var(--muted)',
+            marginTop: '2px',
+          }}
+        >
+          <span>{t('settings.contactEmail') || 'Contact'}:</span>
+          <a
+            href="mailto:jgpatel8080@gmail.com"
+            style={{
+              color: 'var(--primary)',
+              fontWeight: 800,
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px',
+            }}
+            title="Send Email"
+          >
+            <IconMail size={13} />
+            <span>jgpatel8080@gmail.com</span>
+          </a>
         </div>
       </div>
 
