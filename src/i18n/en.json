@@ -124,6 +124,11 @@
     "versionNumber": "1.0.0 (PWA)",
     "purpose": "Purpose",
     "purposeText": "Designed for Cotton Ginners, Commodity Traders, and Oil Mill Operators for accurate, instant parity and recovery calculations.",
+    "devTitle": "Developer & Contact",
+    "developedBy": "Developed By",
+    "developers": "Naresh Khambhaliya & Jenish Khambhaliya",
+    "contactEmail": "Contact Email",
+    "emailAddress": "jgpatel8080@gmail.com",
     "storageTitle": "Data & Preferences",
     "resetBtn": "Reset Preferences",
     "resetSuccess": "Preferences reset to defaults."

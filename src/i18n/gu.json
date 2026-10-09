@@ -124,6 +124,11 @@
     "versionNumber": "1.0.0 (PWA)",
     "purpose": "હેતુ",
     "purposeText": "કપાસ જીનર્સ, ટ્રેડર્સ અને ઓઇલ મિલ માલિકો માટે ઝડપી અને ચોક્કસ પેરિટી અને રિકવરી ગણતરી માટે બનાવેલ.",
+    "devTitle": "ડેવલપર અને સંપર્ક",
+    "developedBy": "ડેવલપમેન્ટ",
+    "developers": "Naresh Khambhaliya & Jenish Khambhaliya",
+    "contactEmail": "સંપર્ક ઇમેઇલ",
+    "emailAddress": "jgpatel8080@gmail.com",
     "storageTitle": "ડેટા અને પસંદગીઓ",
     "resetBtn": "પસંદગીઓ રીસેટ કરો",
     "resetSuccess": "પસંદગીઓ ફરીથી ડિફોલ્ટ સેટ કરવામાં આવી છે."
