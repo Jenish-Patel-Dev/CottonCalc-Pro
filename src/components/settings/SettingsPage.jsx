@@ -126,7 +126,7 @@ export const SettingsPage = () => {
       {/* 3. PWA & Installation */}
       <div className="card glass">
         <div className="lbl">{t('settings.pwaTitle').toUpperCase()}</div>
-        <div className="status settings-status-row">
+        <div className="status">
           <div className="flex items-center gap-2.5 min-w-0 flex-1">
             <span
               className="dot"
@@ -167,41 +167,23 @@ export const SettingsPage = () => {
           <IconShare size={15} />
           <span>{t('settings.shareTitle').toUpperCase()}</span>
         </div>
-        <div className="status settings-status-row" style={{ background: 'none', border: 0, padding: 0 }}>
-          <p style={{ fontSize: '13.5px', color: 'var(--muted)', margin: 0, lineHeight: 1.5, flex: 1 }}>
+        <div className="settings-status-row">
+          <p style={{ fontSize: '13.5px', color: 'var(--muted)', margin: 0, lineHeight: 1.5, flex: 1, paddingRight: '12px' }}>
             {t('settings.shareDescription')}
           </p>
           <button
             type="button"
             onClick={handleShareApp}
-            className="btn"
-            style={{
-              background: shareFeedback ? '#10B981' : 'var(--primary)',
-              color: '#ffffff',
-              boxShadow: shareFeedback
-                ? '0 4px 14px rgba(16, 185, 129, 0.4)'
-                : '0 4px 14px rgba(34, 46, 137, 0.25)',
-              border: 0,
-              padding: '11px 22px',
-              fontSize: '13.5px',
-              fontWeight: 800,
-              whiteSpace: 'nowrap',
-              transition: 'all 200ms ease',
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-              borderRadius: '12px',
-              cursor: 'pointer',
-            }}
+            className="btn sm"
+            style={shareFeedback ? { background: '#10B981', boxShadow: '0 4px 14px rgba(16, 185, 129, 0.4)' } : undefined}
           >
-            {shareFeedback ? <IconCheck size={18} /> : <IconShare size={18} />}
+            {shareFeedback ? <IconCheck size={16} /> : <IconShare size={16} />}
             <span>{shareFeedback ? t('settings.linkCopied') : t('settings.shareBtn')}</span>
           </button>
         </div>
       </div>
 
-      {/* 4. About Application & Industry Reference */}
+      {/* 5. About Application & Industry Reference */}
       <div className="card glass">
         <div className="lbl">{t('settings.aboutTitle').toUpperCase()}</div>
         <p style={{ fontSize: '14px', color: 'var(--muted)', lineHeight: 1.6 }}>
@@ -242,7 +224,7 @@ export const SettingsPage = () => {
               : (t('termsGate.settingsPending') || 'PENDING')}
           </span>
         </div>
-        <p style={{ fontSize: '13.5px', color: 'var(--muted)', lineHeight: 1.6, margin: '8px 0 12px' }}>
+        <p style={{ fontSize: '13.5px', color: 'var(--muted)', lineHeight: 1.6, margin: '8px 0 14px' }}>
           {hasAccepted && acceptedDate
             ? (t('termsGate.settingsNote')
                 ? t('termsGate.settingsNote').replace('{date}', acceptedDate)
@@ -250,16 +232,13 @@ export const SettingsPage = () => {
             : t('disclaimer.intro')}
         </p>
         <div
-          className="status settings-disclaimer-row"
+          className="settings-disclaimer-row"
           style={{
-            background: 'none',
-            border: 0,
             padding: '14px 0 0',
-            borderTop: '1px solid var(--line)',
-            borderRadius: 0,
+            borderTop: '1px solid var(--neu-border)',
           }}
         >
-          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--muted)', flex: 1, lineHeight: 1.4 }}>
+          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--muted)', flex: 1, lineHeight: 1.4, paddingRight: '12px' }}>
             {hasAccepted
               ? (t('termsGate.settingsAccepted') || 'Accepted & Active')
               : t('disclaimer.acceptance')}
@@ -268,16 +247,6 @@ export const SettingsPage = () => {
             type="button"
             onClick={openReview}
             className="btn sm"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '6px',
-              background: 'var(--primary)',
-              color: 'var(--pi)',
-              fontWeight: 700,
-              whiteSpace: 'nowrap',
-            }}
           >
             <IconShieldAlert size={15} />
             <span>{t('termsGate.viewTerms') || t('disclaimer.readFull')}</span>
@@ -285,10 +254,10 @@ export const SettingsPage = () => {
         </div>
       </div>
 
-      {/* 6. Storage & Reset */}
+      {/* 7. Storage & Reset */}
       <div className="card glass">
-        <div className="status settings-reset-row" style={{ background: 'none', border: 0, padding: 0 }}>
-          <span style={{ fontSize: '13px', color: 'var(--muted)', flex: 1, lineHeight: 1.4 }}>
+        <div className="settings-reset-row">
+          <span style={{ fontSize: '13px', color: 'var(--muted)', flex: 1, lineHeight: 1.4, paddingRight: '12px' }}>
             {resetMessage ? (
               <span style={{ color: 'var(--primary)', fontWeight: 800, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                 <IconCheck size={14} />

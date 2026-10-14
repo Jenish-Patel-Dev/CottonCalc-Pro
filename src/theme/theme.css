@@ -1,6 +1,6 @@
 /* ========================================================
-   CottonCalc Pro - Indigo Theme Design Tokens
-   Source of Truth: cottoncalc-indigo.html
+   CottonCalc Pro - Premium Neumorphism (Soft UI) Design Tokens
+   Light & Dark Theme Neumorphic System
    ======================================================== */
 
 :root {
@@ -10,18 +10,43 @@
   --ok: var(--primary);
 }
 
-/* LIGHT THEME */
+/* LIGHT NEUMORPHISM THEME */
 :root, [data-theme="light"] {
-  --bg: #F0F2FC;
-  --surf: #FFFFFF;
-  --surf2: #F6F7FE;
-  --line: #DFE3F7;
-  --text: #14183A;
-  --muted: #5B628F;
+  /* Surfaces & Background */
+  --bg: #E8EDF3;
+  --surf: #E8EDF3;
+  --surf2: #DFE5EE;
+  --line: rgba(194, 202, 214, 0.45);
+  --neu-border: rgba(255, 255, 255, 0.75);
+  --neu-border-inset: rgba(194, 202, 214, 0.5);
 
+  /* Typography */
+  --text: #202838;
+  --muted: #64728C;
+
+  /* Neumorphic Shadows (Light Mode) */
+  --shadow-dark: #C2CAD6;
+  --shadow-light: #FFFFFF;
+  --shadow-dark-alpha: rgba(194, 202, 214, 0.5);
+
+  --neu-raised: 6px 6px 14px #C2CAD6, -6px -6px 14px #FFFFFF;
+  --neu-raised-sm: 3px 3px 7px #C2CAD6, -3px -3px 7px #FFFFFF;
+  --neu-raised-xs: 2px 2px 5px #C2CAD6, -2px -2px 5px #FFFFFF;
+  --neu-raised-lg: 10px 10px 24px #BAC3D0, -10px -10px 24px #FFFFFF;
+
+  --neu-inset: inset 3px 3px 6px #C2CAD6, inset -3px -3px 6px #FFFFFF;
+  --neu-inset-sm: inset 2px 2px 5px #C2CAD6, inset -2px -2px 5px #FFFFFF;
+  --neu-inset-xs: inset 1.5px 1.5px 3px #C2CAD6, inset -1.5px -1.5px 3px #FFFFFF;
+  --neu-inset-focus: inset 3px 3px 6px #C2CAD6, inset -3px -3px 6px #FFFFFF, 0 0 0 3px rgba(59, 79, 224, 0.22);
+
+  --neu-btn-primary: 5px 5px 12px rgba(59, 79, 224, 0.32), -3px -3px 8px #FFFFFF;
+  --neu-btn-primary-hover: 6px 6px 16px rgba(59, 79, 224, 0.4), -4px -4px 10px #FFFFFF;
+  --neu-btn-primary-active: inset 2px 2px 5px rgba(0, 0, 0, 0.22), inset -2px -2px 5px rgba(255, 255, 255, 0.25);
+
+  /* Brand Accents */
   --primary: #3B4FE0;
   --pi: #FFFFFF;            /* Text color on primary background */
-  --tint: #E6E9FD;          /* Light primary tint for badges, active states */
+  --tint: #E2E6FB;          /* Light primary tint for badges, active states */
 
   --accent2: #0677B5;       /* Sky blue for seed, wash oil */
   --accent2-tint: #DCEFFA;
@@ -32,7 +57,8 @@
   --bad-tint: #FDE9EC;
   --badtint: var(--bad-tint);
 
-  --side: #1B2673;          /* Deep indigo sidebar */
+  /* Sidebar */
+  --side: #18225C;          /* Deep indigo sidebar for desktop contrast */
   --side-text: #EEF0FF;
   --sidetext: var(--side-text);
   --side-muted: #AAB5F0;
@@ -40,7 +66,7 @@
   --side-accent: #7FD3FF;
   --side-accent-ink: #04203A;
 
-  --shadow: 0 1px 2px rgba(20, 24, 58, .05), 0 8px 20px rgba(59, 79, 224, .09);
+  --shadow: var(--neu-raised);
 
   /* Backward Compatibility Aliases */
   --bg-app: var(--bg);
@@ -66,44 +92,70 @@
   --header-text: var(--text);
 }
 
-/* DARK THEME */
+/* DARK NEUMORPHISM THEME */
 :root[data-theme="dark"], .dark {
-  --bg: #080A1D;
-  --surf: #121735;
-  --surf2: #191F44;
-  --line: #272F5E;
-  --text: #ECEEFF;
-  --muted: #9AA3D6;
+  /* Surfaces & Background - Refined Dark Palette */
+  --bg: #20242D;
+  --surf: #292E39;          /* Primary card surface: elevated from #20242D */
+  --surf2: #252A34;         /* Secondary surface */
+  --line: rgba(255, 255, 255, 0.045);
+  --neu-border: rgba(255, 255, 255, 0.045);
+  --neu-border-inset: rgba(0, 0, 0, 0.28);
 
+  /* Typography */
+  --text: #F1F4FA;
+  --muted: #929DB0;
+
+  /* Neumorphic Shadows (Dark Mode) - Layered depth with soft highlight */
+  --shadow-dark: rgba(0, 0, 0, 0.28);
+  --shadow-light: rgba(255, 255, 255, 0.035);
+  --shadow-dark-alpha: rgba(0, 0, 0, 0.35);
+
+  --neu-raised: 6px 6px 14px rgba(0, 0, 0, 0.28), -4px -4px 12px rgba(255, 255, 255, 0.032);
+  --neu-raised-sm: 4px 4px 9px rgba(0, 0, 0, 0.25), -3px -3px 8px rgba(255, 255, 255, 0.028);
+  --neu-raised-xs: 2px 2px 6px rgba(0, 0, 0, 0.25), -2px -2px 5px rgba(255, 255, 255, 0.025);
+  --neu-raised-lg: 10px 10px 22px rgba(0, 0, 0, 0.35), -6px -6px 16px rgba(255, 255, 255, 0.04);
+
+  --neu-inset: inset 3px 3px 7px rgba(0, 0, 0, 0.3), inset -2px -2px 6px rgba(255, 255, 255, 0.025);
+  --neu-inset-sm: inset 2px 2px 5px rgba(0, 0, 0, 0.25), inset -1.5px -1.5px 4px rgba(255, 255, 255, 0.02);
+  --neu-inset-xs: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.22), inset -1px -1px 3px rgba(255, 255, 255, 0.018);
+  --neu-inset-focus: inset 3px 3px 7px rgba(0, 0, 0, 0.3), inset -2px -2px 6px rgba(255, 255, 255, 0.025), 0 0 0 3px rgba(124, 140, 255, 0.28);
+
+  --neu-btn-primary: 4px 4px 12px rgba(0, 0, 0, 0.4), -2px -2px 7px rgba(124, 140, 255, 0.2);
+  --neu-btn-primary-hover: 5px 5px 15px rgba(0, 0, 0, 0.45), -3px -3px 9px rgba(124, 140, 255, 0.28);
+  --neu-btn-primary-active: inset 2px 2px 5px rgba(0, 0, 0, 0.4), inset -2px -2px 5px rgba(255, 255, 255, 0.08);
+
+  /* Brand Accents */
   --primary: #7C8CFF;
-  --pi: #0A0E30;
-  --tint: #1C2359;
+  --pi: #0B0E2A;
+  --tint: #232C58;          /* Rich blue-indigo tint for cotton ginning active/badges */
 
-  --accent2: #4CC3FF;
-  --accent2-tint: #0F2E44;
+  --accent2: #4CC3FF;       /* Sky blue for seed, wash oil */
+  --accent2-tint: #16324D;  /* Rich cyan tint for oil mill active/badges */
   --gold: var(--accent2);
   --goldtint: var(--accent2-tint);
 
-  --bad: #FF7D8C;
+  --bad: #FF7D8C;           /* Waste, danger, errors */
   --bad-tint: #3A1A26;
   --badtint: var(--bad-tint);
 
-  --side: #050720;
-  --side-text: #ECEEFF;
+  /* Sidebar */
+  --side: #181C26;
+  --side-text: #F1F4FA;
   --sidetext: var(--side-text);
-  --side-muted: #939DDA;
+  --side-muted: #929DB0;
   --sidemut: var(--side-muted);
   --side-accent: #7FD3FF;
   --side-accent-ink: #04203A;
 
-  --shadow: 0 1px 2px rgba(0, 0, 0, .3);
+  --shadow: var(--neu-raised);
 
   /* Backward Compatibility Aliases */
   --bg-app: var(--bg);
   --bg-surface: var(--surf);
   --bg-surface-elevated: var(--surf);
   --bg-surface-subtle: var(--surf2);
-  --bg-input: var(--surf2);
+  --bg-input: #1F232C;
   --bg-card: var(--surf);
 
   --text-primary: var(--text);
@@ -116,8 +168,8 @@
   --border-focus: var(--primary);
 
   --sidebar-bg: var(--side);
-  --sidebar-border: rgba(255, 255, 255, 0.08);
-  --header-bg: var(--surf);
+  --sidebar-border: rgba(255, 255, 255, 0.05);
+  --header-bg: var(--bg);
   --header-border: var(--line);
   --header-text: var(--text);
 }
@@ -132,7 +184,7 @@
   }
 }
 
-/* Flat Clean Scrollbar */
+/* Neumorphic Clean Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -141,11 +193,9 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--line);
+  background: var(--shadow-dark);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted);
 }
-
-
