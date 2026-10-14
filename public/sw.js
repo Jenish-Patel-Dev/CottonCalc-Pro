@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cottoncalc-v-1791528601768';
+const CACHE_NAME = 'cottoncalc-v-1791982411462';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
@@ -9,7 +9,11 @@ const PRECACHE_ASSETS = [
   '/icon-512.png',
   '/icon-maskable-192.png',
   '/icon-maskable-512.png',
-  '/apple-touch-icon.png'
+  '/apple-touch-icon.png',
+  '/assets/logos/logo-dark-full.png',
+  '/assets/logos/logo-dark-icon.png',
+  '/assets/logos/logo-light-full.png',
+  '/assets/logos/logo-light-icon.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -90,7 +94,7 @@ self.addEventListener('fetch', (event) => {
           }
           return networkResponse;
         })
-        .catch(() => cachedResponse);
+        .catch(() => cachedResponse || caches.match('/favicon.svg'));
 
       return cachedResponse || fetchPromise;
     })

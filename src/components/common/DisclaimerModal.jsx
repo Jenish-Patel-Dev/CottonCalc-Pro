@@ -87,9 +87,9 @@ export const DisclaimerModal = () => {
       onClick={handleBackdropClick}
       style={{
         zIndex: 99999,
-        background: isMandatoryGate ? 'rgba(5, 8, 26, 0.85)' : 'rgba(8, 12, 32, 0.65)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
+        background: isMandatoryGate ? 'rgba(8, 12, 32, 0.65)' : 'rgba(8, 12, 32, 0.55)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
       }}
       role="dialog"
       aria-modal="true"
@@ -101,7 +101,8 @@ export const DisclaimerModal = () => {
         onClick={(e) => e.stopPropagation()}
         style={{
           maxWidth: '620px',
-          boxShadow: '0 25px 70px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--line)',
+          boxShadow: '0 10px 28px rgba(0, 0, 0, 0.16), var(--neu-raised-sm)',
+          border: '1px solid var(--neu-border)',
         }}
       >
         {/* Mobile Sheet Grab Handle */}
@@ -331,14 +332,14 @@ export const DisclaimerModal = () => {
                   width: '100%',
                   background: isChecked ? 'var(--primary)' : 'var(--surf2)',
                   color: isChecked ? 'var(--pi)' : 'var(--muted)',
-                  border: isChecked ? 'none' : '1px solid var(--line)',
+                  border: isChecked ? 'none' : '1px solid var(--neu-border-inset)',
                   cursor: isChecked ? 'pointer' : 'not-allowed',
                   opacity: isChecked ? 1 : 0.6,
                   fontWeight: 800,
                   fontSize: '14px',
                   minHeight: '44px',
                   boxShadow: isChecked
-                    ? '0 4px 14px rgba(59, 79, 224, 0.35)'
+                    ? 'var(--neu-btn-primary)'
                     : 'none',
                   transition: 'all 0.2s ease',
                 }}

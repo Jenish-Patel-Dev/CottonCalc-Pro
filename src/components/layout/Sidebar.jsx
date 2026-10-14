@@ -7,6 +7,8 @@ import {
   IconDroplet,
   IconSettings,
 } from '../common/Icons';
+import logoDarkFull from '../../assets/logos/logo-dark-full.png';
+import logoDarkIcon from '../../assets/logos/logo-dark-icon.png';
 
 export const Sidebar = ({ currentView, onSelectView, isCollapsed = false }) => {
   const { t } = useTranslation();
@@ -14,11 +16,11 @@ export const Sidebar = ({ currentView, onSelectView, isCollapsed = false }) => {
   // The Desktop Navigation Menu background is always deep dark indigo (#1B2673)
   // in both Light Mode and Dark Mode. Therefore, always use the dark mode logo
   // assets in the navigation menu so contrast and readability are always perfect:
-  // - Navigation Open: DARK_MODE_FULL_LOGO (/assets/logos/logo-dark-full.png)
-  // - Navigation Closed: DARK_MODE_ICON_LOGO (/assets/logos/logo-dark-icon.png)
+  // - Navigation Open: DARK_MODE_FULL_LOGO
+  // - Navigation Closed: DARK_MODE_ICON_LOGO
   const logoSrc = isCollapsed
-    ? '/assets/logos/logo-dark-icon.png'
-    : '/assets/logos/logo-dark-full.png';
+    ? (logoDarkIcon || '/assets/logos/logo-dark-icon.png')
+    : (logoDarkFull || '/assets/logos/logo-dark-full.png');
 
   const navItems = [
     {
@@ -56,6 +58,15 @@ export const Sidebar = ({ currentView, onSelectView, isCollapsed = false }) => {
             src={logoSrc}
             alt="CottonCalc Pro"
             className={`brand-logo-img ${isCollapsed ? 'icon-logo' : 'full-logo'}`}
+            onError={(e) => {
+              const fallback = isCollapsed ? '/assets/logos/logo-dark-icon.png' : '/assets/logos/logo-dark-full.png';
+              if (!e.currentTarget.dataset.triedFallback) {
+                e.currentTarget.dataset.triedFallback = 'true';
+                e.currentTarget.src = fallback;
+              } else if (!e.currentTarget.src.includes('icon-192.png')) {
+                e.currentTarget.src = '/icon-192.png';
+              }
+            }}
           />
         </span>
       </div>

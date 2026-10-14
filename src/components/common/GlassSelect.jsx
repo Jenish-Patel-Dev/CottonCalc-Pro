@@ -45,9 +45,10 @@ export const GlassSelect = ({
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center justify-between gap-2 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all active:scale-95 min-h-[34px] cursor-pointer ${buttonClassName}`}
         style={{
-          background: 'var(--surf2)',
-          borderColor: 'var(--line)',
+          background: 'var(--surf)',
+          borderColor: 'var(--neu-border)',
           color: 'var(--text)',
+          boxShadow: 'var(--neu-raised-sm)',
         }}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
@@ -93,8 +94,8 @@ export const GlassSelect = ({
           } ${dropdownClassName}`}
           style={{
             background: 'var(--surf)',
-            borderColor: 'var(--line)',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.45), var(--shadow)',
+            borderColor: 'var(--neu-border)',
+            boxShadow: 'var(--neu-raised-lg), 0 10px 30px rgba(0, 0, 0, 0.35)',
           }}
         >
           {options.map((opt) => {
@@ -109,11 +110,12 @@ export const GlassSelect = ({
                   onChange(opt.value);
                   setIsOpen(false);
                 }}
-                className="w-full text-left px-3 py-2 text-xs flex items-center justify-between gap-3 rounded-xl transition-colors cursor-pointer"
+                className="w-full text-left px-3 py-2 text-xs flex items-center justify-between gap-3 rounded-xl transition-all cursor-pointer"
                 style={{
                   background: isSelected ? 'var(--tint)' : 'transparent',
                   color: 'var(--text)',
                   fontWeight: isSelected ? 800 : 600,
+                  boxShadow: isSelected ? 'var(--neu-inset-xs)' : 'none',
                 }}
               >
                 <div className="flex items-center gap-2 min-w-0">
